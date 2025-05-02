@@ -608,6 +608,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Get_TemporaryuserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="branch_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporaryuserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_TemporaryuserDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Get_designationDetails">
         <s:complexType />
       </s:element>
@@ -809,6 +830,8 @@
             <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="BRANCH" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="shift" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updated_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updated_on" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1227,6 +1250,15 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FatherName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Marital_Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Married_Details" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mobile_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Residence_phone_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Blood_Group" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DateOfJoining" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="EmpCode" type="s:string" />
@@ -1244,6 +1276,15 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FatherName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Marital_Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Married_Details" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mobile_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Residence_phone_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Blood_Group" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DateOfJoining" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="EmpCode" type="s:string" />
@@ -1264,6 +1305,51 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Get_TempStaffPersonalReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_shiftReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Todate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="staff_type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_shiftReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_shiftReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_LastShiftarrangedforEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BranchId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_LastShiftarrangedforEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_LastShiftarrangedforEmployeeResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -1467,6 +1553,12 @@
   </wsdl:message>
   <wsdl:message name="Get_userDetailsSoapOut">
     <wsdl:part name="parameters" element="tns:Get_userDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporaryuserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_TemporaryuserDetails" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporaryuserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_TemporaryuserDetailsResponse" />
   </wsdl:message>
   <wsdl:message name="Get_designationDetailsSoapIn">
     <wsdl:part name="parameters" element="tns:Get_designationDetails" />
@@ -1678,6 +1770,18 @@
   <wsdl:message name="Get_TempStaffPersonalReportSoapOut">
     <wsdl:part name="parameters" element="tns:Get_TempStaffPersonalReportResponse" />
   </wsdl:message>
+  <wsdl:message name="Get_shiftReportSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_shiftReport" />
+  </wsdl:message>
+  <wsdl:message name="Get_shiftReportSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_shiftReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_LastShiftarrangedforEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_LastShiftarrangedforEmployee" />
+  </wsdl:message>
+  <wsdl:message name="Get_LastShiftarrangedforEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_LastShiftarrangedforEmployeeResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService_HRMasterSoap">
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
@@ -1806,6 +1910,10 @@
     <wsdl:operation name="Get_userDetails">
       <wsdl:input message="tns:Get_userDetailsSoapIn" />
       <wsdl:output message="tns:Get_userDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporaryuserDetails">
+      <wsdl:input message="tns:Get_TemporaryuserDetailsSoapIn" />
+      <wsdl:output message="tns:Get_TemporaryuserDetailsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Get_designationDetails">
       <wsdl:input message="tns:Get_designationDetailsSoapIn" />
@@ -1946,6 +2054,14 @@
     <wsdl:operation name="Get_TempStaffPersonalReport">
       <wsdl:input message="tns:Get_TempStaffPersonalReportSoapIn" />
       <wsdl:output message="tns:Get_TempStaffPersonalReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_shiftReport">
+      <wsdl:input message="tns:Get_shiftReportSoapIn" />
+      <wsdl:output message="tns:Get_shiftReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_LastShiftarrangedforEmployee">
+      <wsdl:input message="tns:Get_LastShiftarrangedforEmployeeSoapIn" />
+      <wsdl:output message="tns:Get_LastShiftarrangedforEmployeeSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService_HRMasterSoap" type="tns:WebService_HRMasterSoap">
@@ -2231,6 +2347,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_userDetails">
       <soap:operation soapAction="http://tempuri.org/Get_userDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporaryuserDetails">
+      <soap:operation soapAction="http://tempuri.org/Get_TemporaryuserDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2553,6 +2678,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Get_shiftReport">
+      <soap:operation soapAction="http://tempuri.org/Get_shiftReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LastShiftarrangedforEmployee">
+      <soap:operation soapAction="http://tempuri.org/Get_LastShiftarrangedforEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService_HRMasterSoap12" type="tns:WebService_HRMasterSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2837,6 +2980,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_userDetails">
       <soap12:operation soapAction="http://tempuri.org/Get_userDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporaryuserDetails">
+      <soap12:operation soapAction="http://tempuri.org/Get_TemporaryuserDetails" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3152,6 +3304,24 @@
     </wsdl:operation>
     <wsdl:operation name="Get_TempStaffPersonalReport">
       <soap12:operation soapAction="http://tempuri.org/Get_TempStaffPersonalReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_shiftReport">
+      <soap12:operation soapAction="http://tempuri.org/Get_shiftReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LastShiftarrangedforEmployee">
+      <soap12:operation soapAction="http://tempuri.org/Get_LastShiftarrangedforEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

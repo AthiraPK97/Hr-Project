@@ -35,13 +35,13 @@
         <Columns>
              <asp:TemplateField HeaderText="EMP CODE" HeaderStyle-ForeColor="White" HeaderStyle-BackColor="#003366" ItemStyle-CssClass="padded-column" >
                  <ItemTemplate>
-                      <asp:Label ID="Lbl_username" runat="server" Width="80px" Height="30px" Text='<%#Eval("unique_username") %>'></asp:Label>
+                      <asp:Label ID="Lbl_username" runat="server" Width="80px" Height="30px" Text='<%#Eval("username") %>'></asp:Label>
                 </ItemTemplate>
                       <HeaderStyle BackColor="#003366" Font-Bold="True"  ForeColor="White" />
             </asp:TemplateField>
          <asp:TemplateField HeaderText="USER NAME" HeaderStyle-ForeColor="White" HeaderStyle-BackColor="#003366" ItemStyle-CssClass="padded-column" >
                       <ItemTemplate>
-                      <asp:Label ID="lbl_loguser" runat="server" Width="200px" Height="30px" Text='<%#Eval("emp_name") %>'></asp:Label>
+                      <asp:Label ID="lbl_loguser" runat="server" Width="200px" Height="30px" Text='<%#Eval("log_user") %>'></asp:Label>
                         </ItemTemplate>
                       <HeaderStyle BackColor="#003366" Font-Bold="True"  ForeColor="White" />
             </asp:TemplateField>

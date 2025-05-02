@@ -50,34 +50,67 @@
             <div class="col-md-12 text-center">
                 <h3 class="text-themecolor">PERSONAL DETAILS</h3>
             </div>
-            <table class="table" style="border-collapse: collapse; width: 100%;">
-            <!-- Table for Leave Details with borders between rows and columns -->
-        <tr style="border: 1px solid gray;">
-        <td style="border: 1px solid gray; padding: 8px; width: 30%; text-align: center; vertical-align: middle;"><b>Address :</b></td>
-        <td style="border: 1px solid gray; padding: 8px; width: 70%;">
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div>
-                    <b>Address Line 1 :</b>
-                    <asp:TextBox ID="txtAddress1" runat="server" style="width: 100%;"></asp:TextBox>
-                </div>
-                <div>
-                    <b>Address Line 2 :</b>
-                    <asp:TextBox ID="txtAddress2" runat="server" style="width: 100%;"></asp:TextBox>
-                </div>
-                  <div>
-                    <b>Address Line 3 :</b>
-                    <asp:TextBox ID="txtAddress3" runat="server" style="width: 100%;"></asp:TextBox>
-                </div>
-                  <div>
-                    <b>Address Line 4 :</b>
-                    <asp:TextBox ID="txtAddress4" runat="server" style="width: 100%;"></asp:TextBox>
-                </div>
-            </div>
-        </td>
-    </tr>
+               <div class="form-group row">
+        <label class="col-lg-2 col-form-label">Address: </label>
+        <div class="col-lg-8">
+                  <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div></div>
+            <div class="form-group row">
+        <label class="col-lg-2 col-form-label">Father's Name: </label>
+        <div class="col-lg-4">
+                  <asp:TextBox ID="txtfathername" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                   
+                    <label class="col-lg-1 col-form-label">Cast: </label>
+        <div class="col-lg-4">
+                        <asp:TextBox ID="txtcast" runat="server" CssClass="form-control" ></asp:TextBox>
+                </div></div>
+          <div class="form-group row">
+    <label class="col-lg-2 col-form-label">Marital Status</label>
+    <div class="col-lg-3">
+        <asp:CheckBox ID="chkSingle" runat="server" Text="Single" AutoPostBack="true" OnCheckedChanged="chkMaritalStatus_CheckedChanged" />
+        <asp:CheckBox ID="chkMarried" runat="server" Text="Married" AutoPostBack="true" OnCheckedChanged="chkMaritalStatus_CheckedChanged" />
+    </div>
+</div>
 
-               </table>
-            <div></div>
+<div class="form-group row" id="divMarriedDetails" runat="server" >
+    <label class="col-lg-2 col-form-label" >Married Details</label>
+    <div class="col-lg-3">
+        <asp:TextBox ID="txtMarriedDetails" runat="server" CssClass="form-control" Placeholder="Enter details..." Enabled="false"></asp:TextBox>
+    </div>
+</div>
+            <div class="form-group row">
+                   
+                    <label class="col-lg-1 col-form-label">Gender: </label>
+        <div class="col-lg-4">
+                        <asp:DropDownList AutoPostBack="true" ID="ddlGender" runat="server">
+                            <asp:ListItem Value="0">------Select-----</asp:ListItem>
+                            <asp:ListItem Value="Male">Male</asp:ListItem>
+                            <asp:ListItem Value="FeMale">FeMale</asp:ListItem>
+                        </asp:DropDownList>
+                </div></div>
+                <div class="form-group row">
+        <label class="col-lg-2 col-form-label">Mobile Number: </label>
+        <div class="col-lg-3">
+                  <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                   
+                    <label class="col-lg-3 col-form-label">Residence phone number : </label>
+        <div class="col-lg-4">
+                        <asp:TextBox ID="txtRphone" runat="server" CssClass="form-control" ></asp:TextBox>
+                </div></div>
+
+                <div class="form-group row">
+        <label class="col-lg-2 col-form-label">Qualification: </label>
+        <div class="col-lg-3">
+                  <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                   
+                    <label class="col-lg-3 col-form-label">Blood Group: </label>
+        <div class="col-lg-4">
+                        <asp:TextBox ID="txtBloodGroup" runat="server" CssClass="form-control" ></asp:TextBox>
+                </div></div>
+
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">Date Of Birth: </label>
         <div class="col-lg-3">

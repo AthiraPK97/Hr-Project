@@ -75,19 +75,9 @@ namespace Web_HR_Master
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             string lblUsername = ((Label)GridView1.Rows[e.RowIndex].FindControl("Lbl_username")).Text;
-            //string ddlShift = ((DropDownList)GridView1.Rows[e.RowIndex].FindControl("SHIFT")).SelectedValue.ToString();
-            //DropDownList EditddlShift = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddl_SHIFT");
-            //if (EditddlShift != null)
-            //{
-            //    DataTable dt_Shift = objService.Get_shiftDetails().Tables[0];
-
-
-            //    EditddlShift.DataSource = dt_Shift;
-            //    EditddlShift.DataTextField = "shift";
-            //    EditddlShift.DataValueField = "shift_id";
-            //    EditddlShift.DataBind();
-
-            //}
+            //string lblPostName = ((Label)GridView1.Rows[e.RowIndex].FindControl("lbl_PostName")).Text;
+            string lblBranchame = ((Label)GridView1.Rows[e.RowIndex].FindControl("lbl_BranchName")).Text;
+            string lblBranchid = ((Label)GridView1.Rows[e.RowIndex].FindControl("lbl_Branchid")).Text;
             DropDownList ddlShift = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddl_SHIFT");
             string selectedShift = ((DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddl_SHIFT")).SelectedValue.ToString();
             if (!string.IsNullOrEmpty(ddlShift.ToString()))
@@ -99,11 +89,13 @@ namespace Web_HR_Master
                 Response.Write("DropDownList not found");
             }
 
-            int result = objService.UpdateStaffShift(lblUsername, selectedShift);
+            //int result = objService.UpdateStaffShift(lblUsername, selectedShift);
+
+            int res = objService.InsertStaffShift(lblUsername , lblBranchid, selectedShift, Session["USERID"].ToString(), DateTime.Now.ToString("dd-MMM-yyyy"));
             GridView1.EditIndex = -1;
 
 
-            if (result > 0)
+            if (res > 0)
             {
                 DataTable dtt = new DataTable();
                 dtt = objService.Get_staffShiftDetails(ddl_Branch.SelectedValue.ToString()).Tables[0];

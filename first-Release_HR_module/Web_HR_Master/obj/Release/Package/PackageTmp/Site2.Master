@@ -134,8 +134,8 @@
                                 <li><a class="sidebar-sub-toggle"><i class="mdi mdi-account-plus"></i> Change Shift Temp  <span
                                     class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="ShiftChange_Temp_Staff.aspx" class="mdi mdi-file">Today Shift Change</a></li>
-                                <li><a href="Shift_chage_ForDate.aspx" class="mdi mdi-file">Shift Change</a></li>
+                                <li><a href="ShiftChange_Temp_Staff.aspx" class="mdi mdi-file"> Shift Add or Change</a></li>
+                                <%--<li><a href="Shift_chage_ForDate.aspx" class="mdi mdi-file">Shift Change</a></li>--%>
                                                            
                             </ul>
                         </li>
@@ -157,12 +157,12 @@
                               
                                 <li><a href="AddStaffNorms.aspx" class="mdi mdi-file">Add Norms</a></li>
                                 <li><a href="StaffNorms.aspx" class="mdi mdi-file">View Norms</a></li>
-                                <li><a href="PostWisePuchingReport.aspx" class="mdi mdi-file">Postwise Punching report</a></li>
+                                <%--<li><a href="PostWisePuchingReport.aspx" class="mdi mdi-file">Postwise Punching report</a></li>--%>
 
                                                            
                             </ul>
                         </li>
-                        <li><a class="sidebar-sub-toggle"><i class="mdi mdi-account-plus"></i> Staff Shift  <span
+                        <li><a class="sidebar-sub-toggle"><i class="mdi mdi-account-plus"></i>Permanent Staff's Shift  <span
                                     class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                               

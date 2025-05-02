@@ -22,8 +22,8 @@
     <MetadataSource Address="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebService_HRMaster1.disco" MetadataType="Disco" ID="ca92491f-d0cf-4152-9f82-8dd4728c115e" SourceId="1" SourceUrl="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx?disco" />
-    <MetadataFile FileName="WebService_HRMaster1.wsdl" MetadataType="Wsdl" ID="b6e8b694-700b-4e27-ab6f-f5f250f95abd" SourceId="1" SourceUrl="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx?wsdl" />
+    <MetadataFile FileName="WebService_HRMaster1.disco" MetadataType="Disco" ID="3807fe88-e7ba-49c3-92d1-bb99a282a192" SourceId="1" SourceUrl="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx?disco" />
+    <MetadataFile FileName="WebService_HRMaster1.wsdl" MetadataType="Wsdl" ID="0db310ff-6c9c-425c-aea2-1b234283a9fc" SourceId="1" SourceUrl="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -48,14 +48,14 @@ namespace WebService_HRMaster
             DataSet DS = new DataSet();
             DS = ObjOrclHelper.ExecuteDataSet("select s.firm_id, s.emp_code, s.emp_name,s.caste, s.religion, case s.identity_id when 8 then 'Aadhar' when 1 then 'Passport' when 7 then 'Nil' when 5 then 'PAN card' when 0 then 'Nil' when 3 then 'Voters Id' when 2 then 'Driving Licence' else 'Others' end Identity_Name, s.idproof_number,/*s.groupid*/case s.groupid when 1 then 'O+ve' " +
            "when 2 then 'O-ve' when 3 then 'A+ve' when 4 then 'A-ve' when 5 then 'B+ve' when 6 then 'B-ve' when 7 then 'AB+ve' when 8 then 'AB-ve' else '' end blood_group, s.spouse_name, s.father_name,s.emp_email," +
-           "s.gender, s.birth_date, s.age, s.permanent_Addr, s.present_Addr, s.cont_phone, s.res_phone, s.state, s.shift, s.in_time, s.out_time, to_char(s.join_dt,'dd-MM-yyyy') join_dt, s.exp, s.designation, s.dep_name,s.basic_pay, " +
+           "s.gender, s.birth_date, s.age, s.permanent_Addr, s.present_Addr, s.cont_phone, s.res_phone, s.state, s.shift, to_char(s.join_dt,'dd-MM-yyyy') join_dt, s.exp, s.designation, s.dep_name,s.basic_pay, " +
            "s.post_name, s.year_pass, s.qualification, s.branch_name from (select m.*,(select q.qualification from mactech.EMPLOY_QUALIFICATION_DTL p join mactech.qualification_master q on p.qualification = q.qualification_id where p.emp_code = m.emp_code and to_number(p.year_pass) = to_number(m.year_pass)) qualification " +
            "from(select e.branch_name, a.firm_id, a.emp_code, a.emp_name,k.caste, n.religion, p.identity_id, k.idproof_number,m.groupid, k.spouse_name, k.father_name,k.emp_email, NVL(TO_CHAR(r.gender), 'Female') gender,k.birth_date," +
            "ROUND((SYSDATE - TO_DATE(k.birth_date)) / 365.25) age,k.perm_Add1 permanent_Addr, k.pres_Add1 present_Addr,k.cont_phone,k.res_phone,h.state_name state,f.shift,f.in_time,f.out_time,a.join_dt,trunc(months_between(sysdate, TO_DATE(a.join_dt)) / 12) || '.' || mod(trunc(months_between(sysdate, TO_DATE(a.join_dt))), 12) || '.' ||trunc(sysdate - add_months(TO_DATE(a.join_dt), " +
            "trunc(months_between(sysdate, TO_DATE(a.join_dt))))) exp,b.designation,c.dep_name,a.basic_pay,d.post_name,max(g.year_pass) year_pass from hospital.employee_master a left outer join mactech.DESIGNATION_MASTER b on a.designation_id = b.designation_id join HOSPITAL.DEPARTMENT_MST c on c.dep_id = a.department_id join mactech.POST_MST d on d.post_id = a.post_id " +
            "join mactech.branch_master e on e.branch_id = a.branch_id left outer join SHIFTALERT_SHIFTS f on f.shift_id = a.shift_id left outer join mactech.EMPLOY_QUALIFICATION_DTL g on g.emp_code = a.emp_code left outer JOIN mactech.qualification_master h on h.qualification_id = g.qualification left outer join mactech.employ_personal_dtl k " +
            "on k.emp_code = a.emp_code left outer join hospital.macare_blood_group m on m.groupid = k.blood_id left outer join mactech.religion_master n on n.religion_id = k.religion_id left outer join mactech.IDENTITY p on p.identity_id = k.Id_proof left outer join hospital.MARITAL_STATUS q on q.statusid = k.marital_status left outer join hospital.EMRM_GENDER_CATEGORY r " +
-           "on r.gender_id = k.sex left outer join mactech.state_master h on h.state_id = e.state_id where a.firm_id = 16 and a.branch_id = 0 and a.status_id = 1  and a.emp_code not in ('2000','40002','40004','153045') group by  e.branch_name,a.firm_id,a.emp_code,a.emp_name,f.shift,f.in_time,f.out_time,a.join_dt,b.designation,c.dep_name,a.basic_pay,d.post_name,k.caste,n.religion," +
+           "on r.gender_id = k.sex left outer join mactech.state_master h on h.state_id = e.state_id where a.firm_id = 16 and a.branch_id = 0 and a.status_id = 1 and a.emp_type in (1,2)  and a.emp_code not in ('2000','40002','40004','153045') group by  e.branch_name,a.firm_id,a.emp_code,a.emp_name,f.shift,f.in_time,f.out_time,a.join_dt,b.designation,c.dep_name,a.basic_pay,d.post_name,k.caste,n.religion," +
            "p.identity_id, k.idproof_number,m.groupid,k.spouse_name,k.father_name,k.emp_email,r.gender,k.birth_date,k.perm_Add1,k.pres_Add1,k.cont_phone,k.res_phone,h.state_name)m)s");
             return DS;
         }
@@ -66,14 +66,14 @@ namespace WebService_HRMaster
             DataSet DS = new DataSet();
             DS = ObjOrclHelper.ExecuteDataSet("select s.firm_id, s.emp_code, s.emp_name,s.caste, s.religion,case s.identity_id when 8 then 'Aadhar' when 1 then 'Passport' when 7 then 'Nil' when 5 then 'PAN card' when 0 then 'Nil' when 3 then 'Voters Id' when 2 then 'Driving Licence' else 'Others' end Identity_Name, s.idproof_number,/*s.groupid*/case s.groupid when 1 then 'O+ve' " +
            "when 2 then 'O-ve' when 3 then 'A+ve' when 4 then 'A-ve' when 5 then 'B+ve' when 6 then 'B-ve' when 7 then 'AB+ve' when 8 then 'AB-ve' else '' end blood_group, s.spouse_name, s.father_name,s.emp_email," +
-           "s.gender, s.birth_date, s.age, s.permanent_Addr, s.present_Addr, s.cont_phone, s.res_phone, s.state, s.shift, s.in_time, s.out_time, to_char(s.join_dt,'dd-MM-yyyy') join_dt, s.exp, s.designation, s.dep_name,s.basic_pay, " +
+           "s.gender, s.birth_date, s.age, s.permanent_Addr, s.present_Addr, s.cont_phone, s.res_phone, s.state, s.shift,  to_char(s.join_dt,'dd-MM-yyyy') join_dt, s.exp, s.designation, s.dep_name,s.basic_pay, " +
            "s.post_name, s.year_pass, s.qualification, s.branch_name from (select n.* from (select m.*,(select q.qualification from mactech.EMPLOY_QUALIFICATION_DTL p join mactech.qualification_master q on p.qualification = q.qualification_id where p.emp_code = m.emp_code and to_number(p.year_pass) = to_number(m.year_pass)) qualification " +
            "from(select e.branch_name, a.firm_id, a.emp_code, a.emp_name,k.caste, n.religion, p.identity_id, k.idproof_number,m.groupid, k.spouse_name, k.father_name,k.emp_email, NVL(TO_CHAR(r.gender), 'Female') gender,k.birth_date,ROUND((SYSDATE - TO_DATE(k.birth_date)) / 365.25) age,k.perm_Add1 permanent_Addr, " +
            "k.pres_Add1 present_Addr,k.cont_phone,k.res_phone,h.state_name state,f.shift,f.in_time,f.out_time,a.join_dt,trunc(months_between(sysdate, TO_DATE(a.join_dt)) / 12) || '.' || mod(trunc(months_between(sysdate, TO_DATE(a.join_dt))), 12) || '.' ||trunc(sysdate - add_months(TO_DATE(a.join_dt), trunc(months_between(sysdate, TO_DATE(a.join_dt))))) exp,b.designation," +
            "c.dep_name,a.basic_pay,d.post_name,max(g.year_pass) year_pass from hospital.employee_master a left outer join mactech.DESIGNATION_MASTER b on a.designation_id = b.designation_id join HOSPITAL.DEPARTMENT_MST c on c.dep_id = a.department_id join mactech.POST_MST d on d.post_id = a.post_id join mactech.branch_master e " +
            "on e.branch_id = a.branch_id left outer join SHIFTALERT_SHIFTS f on f.shift_id = a.shift_id left outer join mactech.EMPLOY_QUALIFICATION_DTL g on g.emp_code = a.emp_code left outer JOIN mactech.qualification_master h on h.qualification_id = g.qualification left outer join mactech.employ_personal_dtl k on k.emp_code = a.emp_code left outer join " +
            "hospital.macare_blood_group m on m.groupid = k.blood_id left outer join mactech.religion_master n on n.religion_id = k.religion_id left outer join mactech.IDENTITY p on p.identity_id = k.Id_proof left outer join hospital.MARITAL_STATUS q on q.statusid = k.marital_status left outer join hospital.EMRM_GENDER_CATEGORY r on r.gender_id = k.sex " +
-           "left outer join mactech.state_master h on h.state_id = e.state_id where firm_id in (16) and  a.status_id = 1 and a.emp_type=1  and a.emp_code not in ('2000','40002','40004','153045') group by  e.branch_name,a.firm_id,a.emp_code,a.emp_name,f.shift,f.in_time,f.out_time,a.join_dt,b.designation,c.dep_name,a.basic_pay,d.post_name,k.caste,n.religion,p.identity_id, k.idproof_number,m.groupid," +
+           "left outer join mactech.state_master h on h.state_id = e.state_id where firm_id in (16) and  a.status_id = 1 and a.emp_type in (1,2)  and a.emp_code not in ('2000','40002','40004','153045') group by  e.branch_name,a.firm_id,a.emp_code,a.emp_name,f.shift,f.in_time,f.out_time,a.join_dt,b.designation,c.dep_name,a.basic_pay,d.post_name,k.caste,n.religion,p.identity_id, k.idproof_number,m.groupid," +
            "k.spouse_name,k.father_name,k.emp_email,r.gender,k.birth_date,k.perm_Add1,k.pres_Add1,k.cont_phone,k.res_phone,h.state_name)m order by m.branch_name)n where n.firm_id not in (8))s");
             return DS;
         }
@@ -148,8 +148,8 @@ namespace WebService_HRMaster
 
             DS = ObjOrclHelper.ExecuteDataSet("select s.firm_id, s.emp_code, s.emp_name,s.caste, s.religion,case s.identity_id when 8 then 'Aadhar' when 1 then 'Passport' when 7 then 'Nil' when 5 then 'PAN card' when 0 then 'Nil' when 3 then 'Voters Id' when 2 then 'Driving Licence' else 'Others' end Identity_Name, s.idproof_number, " +
                 " case s.groupid when 1 then 'O+ve' when 2 then 'O-ve' when 3 then 'A+ve' when 4 then 'A-ve' when 5 then 'B+ve' when 6 then 'B-ve' when 7 then 'AB+ve' when 8 then 'AB-ve' else '' end blood_group, s.spouse_name, s.father_name,s.emp_email,s.gender,to_char(s.birth_date, 'dd-mm-yyyy')Date_Of_Birth,s.age, " +
-                " s.permanent_Addr,s.present_Addr, s.cont_phone, s.res_phone,s.state, s.in_time, s.out_time, to_char(s.join_dt, 'dd-MM-yyyy') join_dt, s.designation, s.dep_name, " +
-                " s.basic_pay,s.post_name, s.year_pass, s.branch_name from(select e.branch_name, a.firm_id, a.emp_code, a.emp_name, k.caste, n.religion, p.identity_id, k.idproof_number, nvl(m.groupid, 0) groupid, k.child_number,q.statusname Marital_status, k.spouse_name, " +
+                " s.permanent_Addr,s.present_Addr, s.cont_phone, s.res_phone,s.state, to_char(s.join_dt, 'dd-MM-yyyy') join_dt, s.designation, s.dep_name, " +
+                " s.basic_pay,s.post_name, /*s.year_pass,*/ s.branch_name from(select e.branch_name, a.firm_id, a.emp_code, a.emp_name, k.caste, n.religion, p.identity_id, k.idproof_number, nvl(m.groupid, 0) groupid, k.child_number,q.statusname Marital_status, k.spouse_name, " +
                 " k.father_name,k.emp_email, NVL(TO_CHAR(r.gender), 'Female') gender, k.birth_date, ROUND((SYSDATE - TO_DATE(k.birth_date)) / 365.25) age, " +
                 " k.perm_Add1 permanent_Addr, k.pres_Add1 present_Addr, k.cont_phone, k.res_phone, h.state_name state, f.shift, f.in_time, f.out_time, a.join_dt, " +
                 " trunc(months_between(sysdate, TO_DATE(a.join_dt)) / 12) || '.' || mod(trunc(months_between(sysdate, TO_DATE(a.join_dt))), 12) || '.' || trunc(sysdate - add_months(TO_DATE(a.join_dt), " +
@@ -160,7 +160,7 @@ namespace WebService_HRMaster
                 " left outer JOIN mactech.qualification_master h on h.qualification_id = g.qualification left outer join mactech.employ_personal_dtl k on k.emp_code = a.emp_code " +
                 " left outer join hospital.macare_blood_group m on m.groupid = k.blood_id left outer join mactech.religion_master n on n.religion_id = k.religion_id left outer join " +
                 " mactech.IDENTITY p on p.identity_id = k.Id_proof left outer join hospital.MARITAL_STATUS q on q.statusid = k.marital_status left outer join hospital.EMRM_GENDER_CATEGORY r " +
-                " on r.gender_id = k.sex left outer join mactech.state_master h on h.state_id = e.state_id where a.firm_id = 16  and a.status_id = 1 and a.emp_type = 1 " +
+                " on r.gender_id = k.sex left outer join mactech.state_master h on h.state_id = e.state_id where a.firm_id = 16  and a.status_id = 1 and a.emp_type in (1,2) " +
                 " and a.emp_code not in ('153045', '10001') group by  e.branch_name, a.firm_id, a.emp_code, a.emp_name, f.shift, f.in_time, f.out_time,a.join_dt, b.designation, c.dep_name, " +
                 " a.basic_pay, d.post_name, k.caste, n.religion, p.identity_id, k.idproof_number, m.groupid, k.child_number, q.statusname,k.spouse_name, k.father_name, k.emp_email, r.gender," +
                 " k.birth_date, k.perm_Add1, k.pres_Add1, k.cont_phone, k.res_phone, h.state_name order by e.branch_name)s");
@@ -174,7 +174,7 @@ namespace WebService_HRMaster
         {
             DataSet DS = new DataSet();
             DS = ObjOrclHelper.ExecuteDataSet("select distinct a.emp_code,qq.year_pass,q.qualification from mactech.EMPLOY_QUALIFICATION_DTL qq join mactech.qualification_master q on qq.qualification=q.qualification_id join hospital.employee_master a on a.emp_code = qq.emp_code where qq.year_pass = (select max(year_pass) from " +
-                "mactech.EMPLOY_QUALIFICATION_DTL where emp_code = a.emp_code) and a.firm_id = 16  and a.status_id = 1 and a.emp_type = 1 and a.emp_code not in ('153045', '10001') order by a.emp_code");
+                "mactech.EMPLOY_QUALIFICATION_DTL where emp_code = a.emp_code) and a.firm_id = 16  and a.status_id = 1 and a.emp_type in(1,2) and a.emp_code not in ('153045', '10001') order by a.emp_code");
             return DS;
         }
 
@@ -474,6 +474,17 @@ namespace WebService_HRMaster
             DS = ObjOrclHelper.ExecuteDataSet(query);
             return DS;
         }
+
+        [WebMethod()]
+        public DataSet Get_TemporaryuserDetails(string branch_id)
+        {
+            DataSet DS = new DataSet();
+            string query = "";
+            query = ("select a.username  ||'-'||  a.log_user AS log_user,a.username from login_users a where a.username like '123%' and a.active=1 and a.branchid='"+branch_id+"' ");
+            DS = ObjOrclHelper.ExecuteDataSet(query);
+            return DS;
+        }
+
         [WebMethod()]
         public DataSet Get_designationDetails()
         {
@@ -614,7 +625,7 @@ namespace WebService_HRMaster
         }
 
         [WebMethod()]
-        public int InsertStaffShift(string Username,string BRANCH, string shift)
+        public int InsertStaffShift(string Username,string BRANCH, string shift,string updated_by,string updated_on)
         {
             int res = 0;
             int id = 0;
@@ -624,7 +635,7 @@ namespace WebService_HRMaster
             if (dt.Rows[0][0].ToString() == "")
                 id = 1;
             else id = Convert.ToInt32(dt.Rows[0][0].ToString());
-            query = "insert into MACARE_STAFF_SHIFT (id,USERNAME,BRANCH_ID,SHIFT_ID) values('" + id + "','" + Username + "','" + BRANCH + "','" + shift + "') ";
+            query = "insert into MACARE_STAFF_SHIFT (id,USERNAME,BRANCH_ID,SHIFT_ID,entered_by,entered_on) values('" + id + "','" + Username + "','" + BRANCH + "','" + shift + "','"+updated_by+"','"+updated_on+"') ";
             res = ObjOrclHelper.ExecuteNonQuery(query);
             return res;
         }
@@ -643,34 +654,45 @@ namespace WebService_HRMaster
         public DataSet Get_staffShiftDetails(string branch_id)
         {
             DataSet DS = new DataSet();
-            string query = "";
+            string query;
             if (branch_id != null)
             {
-                query = ("select distinct  a.emp_code AS unique_username,a.emp_name as emp_name,(h.in_time || '-' || h.out_time) || '-' || h.shift as shift, " +
-                    " d.post_name as post_name, m.branch_name as branch_name FROM macare_staff_shift s join hospital.employee_master a on a.emp_code = s.username  " +
-                    " join shiftalert_shifts h on h.shift_id = s.shift_id join  macare_unitmaster m on m.branch_id = s.branch_id join mactech.POST_MST d " +
-                    " on d.post_id = a.post_id WHERE a.firm_id = 16 and a.status_id = 1  and s.branch_id = '" + branch_id + "' and m.branch_type not in('Clinic')" +
-                    " AND a.emp_code NOT IN(SELECT username FROM login_users " +
-                    " WHERE username LIKE '123%') union all select distinct to_number(l.username) AS unique_username, l.log_user as emp_name," +
-                    " (h.in_time || '-' || h.out_time) || '-' || h.shift as shift,to_char(l.designation) as post_name,mi.branch_name as branch_name" +
-                    " FROM macare_staff_shift s join login_users l on s.username = l.username join macare_unitmaster mi on mi.branch_id = s.branch_id " +
-                    " join shiftalert_shifts h on h.shift_id = s.shift_id join macare_unitmaster m on m.branch_id = s.branch_id  WHERE l.username" +
-                    " LIKE '123%' and active = 1 and s.branch_id = '" + branch_id + "' and mi.branch_type not in('Clinic')  AND l.username NOT IN(SELECT emp_code   FROM hospital.employee_master WHERE firm_id = 16 and " +
-                    " status_id = 1)");
+                //query = ("select distinct  a.emp_code AS unique_username,a.emp_name as emp_name,(h.in_time || '-' || h.out_time) || '-' || h.shift as shift, " +
+                //    " /*d.post_name as post_name,*/ m.branch_name as branch_name,s.entered_by,to_char(s.entered_on,'dd-mm-yyyy')entered_on,s.branch_id FROM macare_staff_shift s join hospital.employee_master a on a.emp_code = s.username  " +
+                //    " join shiftalert_shifts h on h.shift_id = s.shift_id join  macare_unitmaster m on m.branch_id = s.branch_id /*join mactech.POST_MST d */" +
+                //    " /*on d.post_id = a.post_id*/ WHERE a.firm_id = 16 and a.status_id = 1  and s.branch_id = '" + branch_id + "' and m.branch_type not in('Clinic')" +
+                //    " AND a.emp_code NOT IN(SELECT username FROM login_users " +
+                //    " WHERE username LIKE '123%') union all select distinct to_number(l.username) AS unique_username, l.log_user as emp_name," +
+                //    " (h.in_time || '-' || h.out_time) || '-' || h.shift as shift/*,to_char(l.designation) as post_name*/,mi.branch_name as branch_name,s.entered_by," +
+                //    " to_char(s.entered_on,'dd-mm-yyyy')entered_on,s.branch_id   " +
+                //    " FROM macare_staff_shift s join login_users l on s.username = l.username join macare_unitmaster mi on mi.branch_id = s.branch_id " +
+                //    " join shiftalert_shifts h on h.shift_id = s.shift_id join macare_unitmaster m on m.branch_id = s.branch_id  WHERE l.username" +
+                //    " LIKE '123%' and active = 1 and s.branch_id = '" + branch_id + "' and mi.branch_type not in('Clinic')  AND l.username NOT IN(SELECT emp_code   FROM hospital.employee_master WHERE firm_id = 16 and " +
+                //    " status_id = 1)");
+
+                query = "select m.branch_name,a.username,l.log_user,(s.in_time || '-' || s.out_time) || '-' || s.shift as shift,a.branch_id,a.entered_by,a.entered_on from macare_staff_shift a join login_users l on " +
+                    " l.username = a.username join macare_unitmaster m on m.branch_id = a.branch_id join shiftalert_shifts s " +
+                    " on s.shift_id = a.shift_id /*mactech.POST_MST d on d.post_id = a.post_id*/ where m.branch_type   not in('Clinic') and a.branch_id='"+branch_id+"' ";
             }
             else
             {
-                query = ("select distinct  a.emp_code AS unique_username,a.emp_name as emp_name,(h.in_time || '-' || h.out_time) || '-' || h.shift as shift, " +
-                  "d.post_name as post_name, m.branch_name as branch_name FROM macare_staff_shift s join hospital.employee_master a on a.emp_code = s.username  " +
-                  " join shiftalert_shifts h on h.shift_id = s.shift_id join  macare_unitmaster m on m.branch_id = s.branch_id join mactech.POST_MST d " +
-                  " on d.post_id = a.post_id WHERE a.firm_id = 16 and a.status_id = 1  and  m.branch_type not in('Clinic')" +
-                  " AND a.emp_code NOT IN(SELECT username FROM login_users " +
-                  " WHERE username LIKE '123%') union all select distinct to_number(l.username) AS unique_username, l.log_user as emp_name," +
-                  " (h.in_time || '-' || h.out_time) || '-' || h.shift as shift,to_char(l.designation) as post_name,mi.branch_name as branch_name" +
-                  " FROM macare_staff_shift s join login_users l on s.username = l.username join macare_unitmaster mi on mi.branch_id = s.branch_id " +
-                  " join shiftalert_shifts h on h.shift_id = s.shift_id join macare_unitmaster m on m.branch_id = s.branch_id  WHERE l.username" +
-                  " LIKE '123%' and active = 1 and  mi.branch_type not in('Clinic')  AND l.username NOT IN(SELECT emp_code   FROM hospital.employee_master WHERE firm_id = 16 and " +
-                  " status_id = 1)");
+                //query = ("select distinct  a.emp_code AS unique_username,a.emp_name as emp_name,(h.in_time || '-' || h.out_time) || '-' || h.shift as shift, " +
+                //  "/*d.post_name as post_name,*/ m.branch_name as branch_name,s.entered_by,to_char(s.entered_on,'dd-mm-yyyy')entered_on,s.branch_id   FROM macare_staff_shift s join hospital.employee_master a on a.emp_code = s.username  " +
+                //  " join shiftalert_shifts h on h.shift_id = s.shift_id join  macare_unitmaster m on m.branch_id = s.branch_id /*join mactech.POST_MST d */" +
+                //  " /*on d.post_id = a.post_id */WHERE a.firm_id = 16 and a.status_id = 1  and  m.branch_type not in('Clinic')" +
+                //  " AND a.emp_code NOT IN(SELECT username FROM login_users " +
+                //  " WHERE username LIKE '123%') union all select distinct to_number(l.username) AS unique_username, l.log_user as emp_name," +
+                //  " (h.in_time || '-' || h.out_time) || '-' || h.shift as shift/*,to_char(l.designation) as post_name*/,mi.branch_name as branch_name,s.entered _by,to_char(s.entered_on,'dd-mm-yyyy')entered_on" +
+                //  " ,s.branch_id  FROM macare_staff_shift s join login_users l on s.username = l.username join macare_unitmaster mi on mi.branch_id = s.branch_id " +
+                //  " join shiftalert_shifts h on h.shift_id = s.shift_id join macare_unitmaster m on m.branch_id = s.branch_id  WHERE l.username" +
+                //  " LIKE '123%' and active = 1 and  mi.branch_type not in('Clinic')  AND l.username NOT IN(SELECT emp_code   FROM hospital.employee_master " +
+                //  "WHERE firm_id = 16 and " +
+                //  " status_id = 1)");
+
+                query = "select m.branch_name,a.username,l.log_user,(s.in_time || '-' || s.out_time) || '-' || s.shift as shift,a.entered_by,a.entered_on from macare_staff_shift a join login_users l on " +
+                " l.username = a.username join macare_unitmaster m on m.branch_id = a.branch_id join shiftalert_shifts s on s.shift_id = a.shift_id " +
+                " /*mactech.POST_MST d on d.post_id = a.post_id*/ where m.branch_type" +
+                "   not in('Clinic') ";
             }
             DS = ObjOrclHelper.ExecuteDataSet(query);
             return DS;
@@ -983,17 +1005,22 @@ namespace WebService_HRMaster
         {
             DataSet DS = new DataSet();
             string query = "";
-            query = ("select id, USERNAME,address,to_char(date_of_joining,'dd-mm-yyyy')date_of_joining,to_char(dob,'dd-mm-yyyy')dob  from MACARE_TEMP_STAFFS_DETAILS where USERNAME='" + username+"' ");
+            query = ("select id, USERNAME,address,father_name,em_cast,gender,mobile_number,residence_phone_number,qualification,blood_group,MARITAL_STATUS, " +
+                "spouse_details,to_char(date_of_joining,'dd-mm-yyyy')date_of_joining,to_char(dob,'dd-mm-yyyy')dob  from MACARE_TEMP_STAFFS_DETAILS" +
+                " where USERNAME='" + username+"' ");
             DS = ObjOrclHelper.ExecuteDataSet(query);
             return DS;
         }
 
 
         [WebMethod]
-        public int UpdateTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode)
+        public int UpdateTempPersonalData(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode)
         {
             string query; int res;
-            query = "update MACARE_TEMP_STAFFS_DETAILS set address='" + Address + "',date_of_joining='" + DateOfJoining + "',dob='" + DateOfBirth + "' where username='" + EmpCode + "' ";
+            query = "update MACARE_TEMP_STAFFS_DETAILS set address='" + Address + "',FATHER_NAME='"+ FatherName + "',EM_CAST='"+Cast+ "',GENDER='"+ Gender + "',MOBILE_NUMBER='"+ Mobile_Number+ "'," +
+                "RESIDENCE_PHONE_NUMBER='"+Residence_phone_number+ "',QUALIFICATION='"+Qualification+ "',BLOOD_GROUP='"+Blood_Group+ "',MARITAL_STATUS='" + Marital_Status+"'," +
+                " SPOUSE_DETAILS='"+Married_Details+"',date_of_joining='" + DateOfJoining + "',dob='" + DateOfBirth + "' " +
+                "where username='" + EmpCode + "' ";
             res = ObjOrclHelper.ExecuteNonQuery(query);
             return res;
         }
@@ -1001,7 +1028,7 @@ namespace WebService_HRMaster
 
         [WebMethod]
 
-        public int insertTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode)
+        public int insertTempPersonalData(string Address,string FatherName,string Cast,string Marital_Status,string Married_Details,string Gender,string Mobile_Number,string Residence_phone_number, string Qualification,string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode)
         {
             int res = 0;
             int id = 0;
@@ -1011,7 +1038,8 @@ namespace WebService_HRMaster
             if (dt.Rows[0][0].ToString() == "")
                 id = 1;
             else id = Convert.ToInt32(dt.Rows[0][0].ToString());
-            query = "insert into MACARE_TEMP_STAFFS_DETAILS (id,USERNAME,address,date_of_joining,dob) values('" + id + "','" + EmpCode + "','" + Address + "','" + DateOfJoining + "'" +
+            query = "insert into MACARE_TEMP_STAFFS_DETAILS (id,USERNAME,address,FATHER_NAME,EM_CAST,GENDER,MOBILE_NUMBER,RESIDENCE_PHONE_NUMBER,QUALIFICATION,BLOOD_GROUP,MARITAL_STATUS,SPOUSE_DETAILS,date_of_joining,dob) values('" + id + "','" + EmpCode + "','" + Address + "','"+FatherName+"','"+Cast+"'," +
+                " '"+Gender+"','"+Mobile_Number+"','"+Residence_phone_number+"','"+Qualification+"','"+Blood_Group+ "','" + Marital_Status + "','" + Married_Details + "','" + DateOfJoining + "'" +
                 ",'" + DateOfBirth + "') ";
             res = ObjOrclHelper.ExecuteNonQuery(query);
             return res;
@@ -1022,13 +1050,62 @@ namespace WebService_HRMaster
         {
             DataSet DS = new DataSet();
             string query = "";
-            query = ("select distinct m.branch_name as Branch_Name,s.USERNAME as Emp_Code,l.log_user as Emp_Name,s.address as Address," +
-                " to_char(s.date_of_joining,'dd-mm-yyyy')Date_of_Joining,to_char(s.dob,'dd-mm-yyyy')DOB from login_users l  " +
+            query = ("select distinct m.branch_name as Branch_Name,s.USERNAME as Emp_Code,l.log_user as Emp_Name,s.address as Address,s.father_name,s.em_cast,s.gender," +
+                " s.mobile_number,s.residence_phone_number,to_char(s.dob,'dd-mm-yyyy')DOB,s.qualification,s.blood_group,s.MARITAL_STATUS, s.spouse_details," +
+                " to_char(s.date_of_joining,'dd-mm-yyyy')Date_of_Joining from login_users l  " +
                 " join MACARE_TEMP_STAFFS_DETAILS s on s.username = l.username join macare_unitmaster m on m.branch_id = l.branchid " +
                 " where m.branch_type not in ('Clinic') ");
             DS = ObjOrclHelper.ExecuteDataSet(query);
             return DS;
         }
 
+        [WebMethod]
+        public DataSet Get_shiftReport(string branch,string fromDate,string Todate,string staff_type)
+        {
+            DataSet DS = new DataSet();
+            string query = "";
+            if(staff_type== "temp")
+            {
+                query = ("select to_number(a.username) as emp_code ,to_number(a.branch_id) as branch_id,l.log_user as emp_name,to_number(a.shift_id) as SHIFT_ID,l.designation as POST_NAME," +
+                         "  m.branch_name,(s.in_time || '-' || s.out_time) || '-' || s.shift as shift,a.entered_on as CURR_DATE from macare_staff_shift a join login_users l on " +
+                         " to_number(l.username) = to_number(a.username) join macare_unitmaster m on to_number(m.branch_id) = to_number(a.branch_id) join shiftalert_shifts s on to_number(s.shift_id) = to_number(a.shift_id)" +
+                         "   where m.branch_type not in('Clinic') and a.branch_id = '" + branch + "' and to_date(a.entered_on,'dd-mm,yyyy') between " +
+                         " to_date('" + fromDate + "','dd-mm,yyyy') and to_date('" + Todate + "','dd-mm,yyyy') ");
+            }
+            else 
+            {
+                query = ("select * from(select a.emp_code,a.branch_id,a.emp_name,ma.SHIFT_ID,d.POST_NAME,e.BRANCH_NAME, (f.in_time || '-' || f.out_time) || '-' || f.shift " +
+               " as shift,to_char(ma.CURR_DATE, 'dd-mm-yyyy')CURR_DATE from hospital.employee_master a join HOSPITAL.DEPARTMENT_MST c on c.dep_id = a.department_id left outer join mactech.POST_MST d " +
+               " on d.post_id = a.post_id left outer join mactech.branch_master e on e.branch_id = a.branch_id left outer join MACTECH.ATTEND ma on ma.emp_code = a.emp_code join MACTECH.time_tab f" +
+               "  on f.shift_id = ma.shift_id where a.firm_id = 16 and a.status_id = 1 and a.branch_id = '" + branch + "' and to_date(ma.CURR_DATE, 'dd-mm-yyyy')  between  to_date('" + fromDate + "', 'dd-mm-yyyy') " +
+               " and  to_date('" + Todate + "', 'dd-mm-yyyy')  order by to_char(ma.CURR_DATE, 'dd-mm-yyyy')) ");
+
+            }
+
+            DS = ObjOrclHelper.ExecuteDataSet(query);
+            return DS;
+        }
+
+
+        [WebMethod]
+        public DataSet Get_LastShiftarrangedforEmployee(string BranchId)
+        {
+            DataSet DS = new DataSet();
+            string query = "";
+            if (BranchId == null)
+            {
+                query = ("SELECT  m.branch_name,a.username,l.log_user,(s.in_time || '-' || s.out_time || '-' || s.shift) AS shift, a.branch_id,a.entered_on FROM  macare_staff_shift a JOIN login_users l " +
+                    " ON l.username = a.username JOIN macare_unitmaster m ON m.branch_id = a.branch_id JOIN shiftalert_shifts s ON s.shift_id = a.shift_id WHERE  m.branch_type NOT IN('Clinic')" +
+                    " AND a.entered_on = (SELECT MAX(sub.entered_on)  FROM macare_staff_shift sub   WHERE sub.username = a.username  AND sub.branch_id = a.branch_id )");
+            }
+            else
+            {
+                query = ("SELECT  m.branch_name,a.username,l.log_user,(s.in_time || '-' || s.out_time || '-' || s.shift) AS shift, a.branch_id,a.entered_on FROM  macare_staff_shift a JOIN login_users l " +
+                    " ON l.username = a.username JOIN macare_unitmaster m ON m.branch_id = a.branch_id JOIN shiftalert_shifts s ON s.shift_id = a.shift_id WHERE  m.branch_type NOT IN('Clinic') AND a.branch_id = '" + BranchId + "'" +
+                    " AND a.entered_on = (SELECT MAX(sub.entered_on)  FROM macare_staff_shift sub   WHERE sub.username = a.username  AND sub.branch_id = a.branch_id )");
+            }
+            DS = ObjOrclHelper.ExecuteDataSet(query);
+            return DS;
+        }
     }
 }

@@ -26,17 +26,17 @@ namespace Web_HR_Master
             if (!IsPostBack)
             {
                 load_Branch();
-                DataTable dt_ShiftDt = objService.Get_staffShiftDetails(null).Tables[0];
-                if (dt_ShiftDt.Rows.Count > 0)
-                {
-                    GridView1.DataSource = dt_ShiftDt;
-                    GridView1.DataBind();
-                }
-                else
-                {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
-                }
+                //DataTable dt_ShiftDt = objService.Get_staffShiftDetails(null).Tables[0];
+                //if (dt_ShiftDt.Rows.Count > 0)
+                //{
+                //    GridView1.DataSource = dt_ShiftDt;
+                //    GridView1.DataBind();
+                //}
+                //else
+                //{
+                //    GridView1.DataSource = null;
+                //    GridView1.DataBind();
+                //}
             }
         }
 
@@ -57,7 +57,7 @@ namespace Web_HR_Master
         }
         public void load_Shift(object sender, EventArgs e)
         {
-            DataTable dt_ShiftDt = objService.Get_staffShiftDetails(ddl_Branch.SelectedValue.ToString()).Tables[0];
+            DataTable dt_ShiftDt = objService.Get_shiftReport(ddl_Branch.SelectedValue.ToString(), Text_frmdate.Text, Text_todate.Text,ddlType.SelectedValue.ToString()).Tables[0];
             if (dt_ShiftDt.Rows.Count > 0)
             {
                 GridView1.DataSource = dt_ShiftDt;
@@ -106,7 +106,7 @@ namespace Web_HR_Master
                 MailMessage mail = new MailMessage();
                 System.Net.Mail.SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                DataTable dt_Staffshift = objService.Get_staffShiftDetails(Session["BRANCHID"].ToString()).Tables[0];
+                DataTable dt_Staffshift = objService.Get_shiftReport(ddl_Branch.SelectedValue.ToString(), Text_frmdate.Text, Text_todate.Text, ddlType.SelectedValue.ToString()).Tables[0];
                 GridView1.DataSource = dt_Staffshift;
                 GridView1.DataBind();
                 
@@ -155,7 +155,17 @@ namespace Web_HR_Master
 
             }
         }
-            protected void ButtonExport_Click(object sender, EventArgs e)
+
+        
+
+             protected void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            Button1.Visible = true;
+            btnMail.Visible = true;
+            load_Shift(sender, e);
+
+        }
+        protected void ButtonExport_Click(object sender, EventArgs e)
         {
             Table tb = new Table();
             TableRow tr1 = new TableRow();

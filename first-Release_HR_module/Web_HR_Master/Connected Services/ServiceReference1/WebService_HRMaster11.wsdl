@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pswd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Unit_type">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Unit_typeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Unit_typeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_branch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="branch_type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_branchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_branchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster_AO">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMaster_AOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMaster_AOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMaster_DashboardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMaster_DashboardResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_Not">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_NotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMaster_Dashboard_NotResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_Live">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_LiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMaster_Dashboard_LiveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_One">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMaster_Dashboard_OneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMaster_Dashboard_OneResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_branches">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_branchesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_branchesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_HRMaster">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_HRMasterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_HRMasterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Qualifn">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_QualifnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_QualifnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_branch_lab">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_branch_labResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_branch_labResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Checkup_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="branchid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Checkup_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Checkup_detailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Temporarypunchingdetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporarypunchingdetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_TemporarypunchingdetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginTempData">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoginTempDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginTempDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporarypunchingdetailsWithLOgName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporarypunchingdetailsWithLOgNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_TemporarypunchingdetailsWithLOgNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_branchOfUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_branchOfUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_branchOfUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_designation">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_designationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_designationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="designation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branchid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enterduserid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="createLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Employee_Code">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Employee_CodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Employee_CodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_shift">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_shiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_shiftResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shift_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shift" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddShiftResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_ShiftAndName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmpCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_ShiftAndNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_ShiftAndNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TEmpName">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_TEmpNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_TEmpNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shift_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updatedShift" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateShiftResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporarypunchingdetailsWithoutPhoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_TemporarypunchingdetailsWithoutPhotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_TemporarypunchingdetailsWithoutPhotoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_daysCountOfEmployees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_daysCountOfEmployeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_daysCountOfEmployeesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_salaryDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_salaryDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_salaryDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_userDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Designation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_userDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_userDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_designationDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_designationDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_designationDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSalary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MONTHLY_SALARY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEAVE_DAYS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSalaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertSalaryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MONTHLY_SALARY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEAVE_DAYS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSalaryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Unit_typeSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Unit_type" />
+  </wsdl:message>
+  <wsdl:message name="Get_Unit_typeSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Unit_typeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_branch" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_branchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_AOSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_AO" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_AOSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_AOResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_DashboardSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_DashboardSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_DashboardResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_NotSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_Not" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_NotSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_NotResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_LiveSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_Live" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_LiveSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_LiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_OneSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_One" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMaster_Dashboard_OneSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster_Dashboard_OneResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_branches" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_branchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMasterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_HRMaster" />
+  </wsdl:message>
+  <wsdl:message name="Get_HRMasterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_HRMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_QualifnSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Qualifn" />
+  </wsdl:message>
+  <wsdl:message name="Get_QualifnSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_QualifnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_branch_labSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_branch_lab" />
+  </wsdl:message>
+  <wsdl:message name="Get_branch_labSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_branch_labResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Checkup_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Checkup_details" />
+  </wsdl:message>
+  <wsdl:message name="Get_Checkup_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Checkup_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Temporarypunchingdetails" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_TemporarypunchingdetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginTempDataSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginTempData" />
+  </wsdl:message>
+  <wsdl:message name="LoginTempDataSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginTempDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsWithLOgNameSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_TemporarypunchingdetailsWithLOgName" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsWithLOgNameSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_TemporarypunchingdetailsWithLOgNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchOfUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_branchOfUsers" />
+  </wsdl:message>
+  <wsdl:message name="Get_branchOfUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_branchOfUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_designationSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_designation" />
+  </wsdl:message>
+  <wsdl:message name="Get_designationSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_designationResponse" />
+  </wsdl:message>
+  <wsdl:message name="createLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:createLogin" />
+  </wsdl:message>
+  <wsdl:message name="createLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:createLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Employee_CodeSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Employee_Code" />
+  </wsdl:message>
+  <wsdl:message name="Get_Employee_CodeSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Employee_CodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_shiftSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_shift" />
+  </wsdl:message>
+  <wsdl:message name="Get_shiftSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_shiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:AddShift" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:AddShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_ShiftAndNameSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_ShiftAndName" />
+  </wsdl:message>
+  <wsdl:message name="Get_ShiftAndNameSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_ShiftAndNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_TEmpNameSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_TEmpName" />
+  </wsdl:message>
+  <wsdl:message name="Get_TEmpNameSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_TEmpNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateShift" />
+  </wsdl:message>
+  <wsdl:message name="UpdateShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsWithoutPhotoSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_TemporarypunchingdetailsWithoutPhoto" />
+  </wsdl:message>
+  <wsdl:message name="Get_TemporarypunchingdetailsWithoutPhotoSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_TemporarypunchingdetailsWithoutPhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_daysCountOfEmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_daysCountOfEmployees" />
+  </wsdl:message>
+  <wsdl:message name="Get_daysCountOfEmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_daysCountOfEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_salaryDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_salaryDetails" />
+  </wsdl:message>
+  <wsdl:message name="Get_salaryDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_salaryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_userDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_userDetails" />
+  </wsdl:message>
+  <wsdl:message name="Get_userDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_userDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_designationDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_designationDetails" />
+  </wsdl:message>
+  <wsdl:message name="Get_designationDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_designationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSalarySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSalary" />
+  </wsdl:message>
+  <wsdl:message name="InsertSalarySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSalaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalarySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSalary" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalarySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSalaryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService_HRMasterSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Unit_type">
+      <wsdl:input message="tns:Get_Unit_typeSoapIn" />
+      <wsdl:output message="tns:Get_Unit_typeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch">
+      <wsdl:input message="tns:Get_branchSoapIn" />
+      <wsdl:output message="tns:Get_branchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_AO">
+      <wsdl:input message="tns:Get_HRMaster_AOSoapIn" />
+      <wsdl:output message="tns:Get_HRMaster_AOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard">
+      <wsdl:input message="tns:Get_HRMaster_DashboardSoapIn" />
+      <wsdl:output message="tns:Get_HRMaster_DashboardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Not">
+      <wsdl:input message="tns:Get_HRMaster_Dashboard_NotSoapIn" />
+      <wsdl:output message="tns:Get_HRMaster_Dashboard_NotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Live">
+      <wsdl:input message="tns:Get_HRMaster_Dashboard_LiveSoapIn" />
+      <wsdl:output message="tns:Get_HRMaster_Dashboard_LiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_One">
+      <wsdl:input message="tns:Get_HRMaster_Dashboard_OneSoapIn" />
+      <wsdl:output message="tns:Get_HRMaster_Dashboard_OneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_branches">
+      <wsdl:input message="tns:Get_branchesSoapIn" />
+      <wsdl:output message="tns:Get_branchesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster">
+      <wsdl:input message="tns:Get_HRMasterSoapIn" />
+      <wsdl:output message="tns:Get_HRMasterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Qualifn">
+      <wsdl:input message="tns:Get_QualifnSoapIn" />
+      <wsdl:output message="tns:Get_QualifnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch_lab">
+      <wsdl:input message="tns:Get_branch_labSoapIn" />
+      <wsdl:output message="tns:Get_branch_labSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Checkup_details">
+      <wsdl:input message="tns:Get_Checkup_detailsSoapIn" />
+      <wsdl:output message="tns:Get_Checkup_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Temporarypunchingdetails">
+      <wsdl:input message="tns:Get_TemporarypunchingdetailsSoapIn" />
+      <wsdl:output message="tns:Get_TemporarypunchingdetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginTempData">
+      <wsdl:input message="tns:LoginTempDataSoapIn" />
+      <wsdl:output message="tns:LoginTempDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithLOgName">
+      <wsdl:input message="tns:Get_TemporarypunchingdetailsWithLOgNameSoapIn" />
+      <wsdl:output message="tns:Get_TemporarypunchingdetailsWithLOgNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_branchOfUsers">
+      <wsdl:input message="tns:Get_branchOfUsersSoapIn" />
+      <wsdl:output message="tns:Get_branchOfUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_designation">
+      <wsdl:input message="tns:Get_designationSoapIn" />
+      <wsdl:output message="tns:Get_designationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createLogin">
+      <wsdl:input message="tns:createLoginSoapIn" />
+      <wsdl:output message="tns:createLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Employee_Code">
+      <wsdl:input message="tns:Get_Employee_CodeSoapIn" />
+      <wsdl:output message="tns:Get_Employee_CodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_shift">
+      <wsdl:input message="tns:Get_shiftSoapIn" />
+      <wsdl:output message="tns:Get_shiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <wsdl:input message="tns:AddShiftSoapIn" />
+      <wsdl:output message="tns:AddShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ShiftAndName">
+      <wsdl:input message="tns:Get_ShiftAndNameSoapIn" />
+      <wsdl:output message="tns:Get_ShiftAndNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_TEmpName">
+      <wsdl:input message="tns:Get_TEmpNameSoapIn" />
+      <wsdl:output message="tns:Get_TEmpNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <wsdl:input message="tns:UpdateShiftSoapIn" />
+      <wsdl:output message="tns:UpdateShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithoutPhoto">
+      <wsdl:input message="tns:Get_TemporarypunchingdetailsWithoutPhotoSoapIn" />
+      <wsdl:output message="tns:Get_TemporarypunchingdetailsWithoutPhotoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_daysCountOfEmployees">
+      <wsdl:input message="tns:Get_daysCountOfEmployeesSoapIn" />
+      <wsdl:output message="tns:Get_daysCountOfEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_salaryDetails">
+      <wsdl:input message="tns:Get_salaryDetailsSoapIn" />
+      <wsdl:output message="tns:Get_salaryDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_userDetails">
+      <wsdl:input message="tns:Get_userDetailsSoapIn" />
+      <wsdl:output message="tns:Get_userDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_designationDetails">
+      <wsdl:input message="tns:Get_designationDetailsSoapIn" />
+      <wsdl:output message="tns:Get_designationDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSalary">
+      <wsdl:input message="tns:InsertSalarySoapIn" />
+      <wsdl:output message="tns:InsertSalarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalary">
+      <wsdl:input message="tns:UpdateSalarySoapIn" />
+      <wsdl:output message="tns:UpdateSalarySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService_HRMasterSoap" type="tns:WebService_HRMasterSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Unit_type">
+      <soap:operation soapAction="http://tempuri.org/Get_Unit_type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch">
+      <soap:operation soapAction="http://tempuri.org/Get_branch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_AO">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster_AO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Not">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_Not" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Live">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_Live" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_One">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_One" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branches">
+      <soap:operation soapAction="http://tempuri.org/Get_branches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster">
+      <soap:operation soapAction="http://tempuri.org/Get_HRMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Qualifn">
+      <soap:operation soapAction="http://tempuri.org/Get_Qualifn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch_lab">
+      <soap:operation soapAction="http://tempuri.org/Get_branch_lab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Checkup_details">
+      <soap:operation soapAction="http://tempuri.org/Get_Checkup_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Temporarypunchingdetails">
+      <soap:operation soapAction="http://tempuri.org/Get_Temporarypunchingdetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginTempData">
+      <soap:operation soapAction="http://tempuri.org/LoginTempData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithLOgName">
+      <soap:operation soapAction="http://tempuri.org/Get_TemporarypunchingdetailsWithLOgName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branchOfUsers">
+      <soap:operation soapAction="http://tempuri.org/Get_branchOfUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_designation">
+      <soap:operation soapAction="http://tempuri.org/Get_designation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLogin">
+      <soap:operation soapAction="http://tempuri.org/createLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Employee_Code">
+      <soap:operation soapAction="http://tempuri.org/Get_Employee_Code" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_shift">
+      <soap:operation soapAction="http://tempuri.org/Get_shift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <soap:operation soapAction="http://tempuri.org/AddShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ShiftAndName">
+      <soap:operation soapAction="http://tempuri.org/Get_ShiftAndName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TEmpName">
+      <soap:operation soapAction="http://tempuri.org/Get_TEmpName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <soap:operation soapAction="http://tempuri.org/UpdateShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithoutPhoto">
+      <soap:operation soapAction="http://tempuri.org/Get_TemporarypunchingdetailsWithoutPhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_daysCountOfEmployees">
+      <soap:operation soapAction="http://tempuri.org/Get_daysCountOfEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_salaryDetails">
+      <soap:operation soapAction="http://tempuri.org/Get_salaryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_userDetails">
+      <soap:operation soapAction="http://tempuri.org/Get_userDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_designationDetails">
+      <soap:operation soapAction="http://tempuri.org/Get_designationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSalary">
+      <soap:operation soapAction="http://tempuri.org/InsertSalary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalary">
+      <soap:operation soapAction="http://tempuri.org/UpdateSalary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService_HRMasterSoap12" type="tns:WebService_HRMasterSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Unit_type">
+      <soap12:operation soapAction="http://tempuri.org/Get_Unit_type" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch">
+      <soap12:operation soapAction="http://tempuri.org/Get_branch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_AO">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster_AO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Not">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_Not" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_Live">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_Live" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster_Dashboard_One">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster_Dashboard_One" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branches">
+      <soap12:operation soapAction="http://tempuri.org/Get_branches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_HRMaster">
+      <soap12:operation soapAction="http://tempuri.org/Get_HRMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Qualifn">
+      <soap12:operation soapAction="http://tempuri.org/Get_Qualifn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branch_lab">
+      <soap12:operation soapAction="http://tempuri.org/Get_branch_lab" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Checkup_details">
+      <soap12:operation soapAction="http://tempuri.org/Get_Checkup_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Temporarypunchingdetails">
+      <soap12:operation soapAction="http://tempuri.org/Get_Temporarypunchingdetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginTempData">
+      <soap12:operation soapAction="http://tempuri.org/LoginTempData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithLOgName">
+      <soap12:operation soapAction="http://tempuri.org/Get_TemporarypunchingdetailsWithLOgName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_branchOfUsers">
+      <soap12:operation soapAction="http://tempuri.org/Get_branchOfUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_designation">
+      <soap12:operation soapAction="http://tempuri.org/Get_designation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createLogin">
+      <soap12:operation soapAction="http://tempuri.org/createLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Employee_Code">
+      <soap12:operation soapAction="http://tempuri.org/Get_Employee_Code" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_shift">
+      <soap12:operation soapAction="http://tempuri.org/Get_shift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <soap12:operation soapAction="http://tempuri.org/AddShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ShiftAndName">
+      <soap12:operation soapAction="http://tempuri.org/Get_ShiftAndName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TEmpName">
+      <soap12:operation soapAction="http://tempuri.org/Get_TEmpName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <soap12:operation soapAction="http://tempuri.org/UpdateShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_TemporarypunchingdetailsWithoutPhoto">
+      <soap12:operation soapAction="http://tempuri.org/Get_TemporarypunchingdetailsWithoutPhoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_daysCountOfEmployees">
+      <soap12:operation soapAction="http://tempuri.org/Get_daysCountOfEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_salaryDetails">
+      <soap12:operation soapAction="http://tempuri.org/Get_salaryDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_userDetails">
+      <soap12:operation soapAction="http://tempuri.org/Get_userDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_designationDetails">
+      <soap12:operation soapAction="http://tempuri.org/Get_designationDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSalary">
+      <soap12:operation soapAction="http://tempuri.org/InsertSalary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalary">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSalary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService_HRMaster">
+    <wsdl:port name="WebService_HRMasterSoap" binding="tns:WebService_HRMasterSoap">
+      <soap:address location="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService_HRMasterSoap12" binding="tns:WebService_HRMasterSoap12">
+      <soap12:address location="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_HRMaster/WebService_HRMaster.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

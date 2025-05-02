@@ -27,6 +27,18 @@ namespace Web_HR_Master
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
+            string maritalStatus = "";
+            string maritalDetails = "";
+
+            if (chkSingle.Checked)
+            {
+                maritalStatus = "Single";
+            }
+            else if (chkMarried.Checked)
+            {
+                maritalStatus = "Married";
+                maritalDetails = txtMarriedDetails.Text.Trim();
+            }
             DataTable dt_Personaluserdetails = objService.Get_TempStaffPersonalDetails(ddl_empList.SelectedValue.ToString()).Tables[0];
             if (dt_Personaluserdetails.Rows.Count > 0)
             {
@@ -35,7 +47,7 @@ namespace Web_HR_Master
                 DateTime txtDOBDate = DateTime.ParseExact(txtDob.Text, "dd-M-yyyy", null);
                 string formattedDateJoining = txtJoinDate.ToString("dd-MMM-yyyy");
                 string formattedDateDOB = txtDOBDate.ToString("dd-MMM-yyyy");
-                int id= objService.UpdateTempPersonalData(txtAddress1.Text, formattedDateJoining, formattedDateDOB, txt_EmpCode.Text);
+                int id= objService.UpdateTempPersonalData(txtAddress.Text, txtfathername.Text, txtcast.Text, maritalStatus, maritalDetails, ddlGender.SelectedValue.ToString(), txtMobile.Text, txtRphone.Text, txtQualification.Text, txtBloodGroup.Text, formattedDateJoining, formattedDateDOB, txt_EmpCode.Text);
                 if(id>0)
                 {
 
@@ -56,7 +68,7 @@ namespace Web_HR_Master
                 DateTime txtDOBDate = DateTime.ParseExact(txtDob.Text, "dd-M-yyyy", null);
                 string formattedDateJoining = txtJoinDate.ToString("dd-MMM-yyyy");
                 string formattedDateDOB = txtDOBDate.ToString("dd-MMM-yyyy");
-                int id = objService.insertTempPersonalData(txtAddress1.Text + "," + txtAddress2.Text + "," + txtAddress3.Text + "," + txtAddress4.Text, formattedDateJoining, formattedDateDOB, txt_EmpCode.Text);
+                int id = objService.insertTempPersonalData(txtAddress.Text ,txtfathername.Text,txtcast.Text, maritalStatus, maritalDetails, ddlGender.SelectedValue.ToString(),txtMobile.Text,txtRphone.Text,txtQualification.Text,txtBloodGroup.Text, formattedDateJoining, formattedDateDOB, txt_EmpCode.Text);
                 if (id > 0)
                 {
 
@@ -115,27 +127,81 @@ namespace Web_HR_Master
             DataTable dt_Personaluserdetails = objService.Get_TempStaffPersonalDetails(ddl_empList.SelectedValue.ToString()).Tables[0];
             if(dt_Personaluserdetails.Rows.Count>0)
             {
-                txtAddress1.Text= dt_Personaluserdetails.Rows[0]["ADDRESS"].ToString();
+                txtAddress.Text= dt_Personaluserdetails.Rows[0]["ADDRESS"].ToString();
                 txtDateOfJoining.Text= dt_Personaluserdetails.Rows[0]["DATE_OF_JOINING"].ToString();
                 txtDob.Text= dt_Personaluserdetails.Rows[0]["DOB"].ToString();
-            }
+                txtfathername.Text = dt_Personaluserdetails.Rows[0]["father_name"].ToString();
+                txtcast.Text = dt_Personaluserdetails.Rows[0]["em_cast"].ToString();
+                txtMarriedDetails.Text = dt_Personaluserdetails.Rows[0]["spouse_details"].ToString();
+                txtMobile.Text = dt_Personaluserdetails.Rows[0]["mobile_number"].ToString();
+                txtRphone.Text = dt_Personaluserdetails.Rows[0]["residence_phone_number"].ToString();
+                txtQualification.Text = dt_Personaluserdetails.Rows[0]["qualification"].ToString();
+                txtBloodGroup.Text = dt_Personaluserdetails.Rows[0]["blood_group"].ToString();
+                ddlGender.SelectedItem.Text = dt_Personaluserdetails.Rows[0]["gender"].ToString();
+                string isActiveValue = dt_Personaluserdetails.Rows[0]["marital_status"].ToString();
+                if (isActiveValue == "Single")
+                {
+                    chkSingle.Checked = true;
+                    chkMarried.Checked = false;
+                }
+                else if (isActiveValue == "Married")
+                {
+                    chkMarried.Checked = true;
+                    chkSingle.Checked = false;
+                    txtMarriedDetails.Enabled = true;
+                }
+                else
+                {
+                    chkSingle.Checked = false;
+                    chkMarried.Checked = false;
+                }
+                }
 
 
         }
         public void clear()
         {
+            txtAddress.Text = string.Empty;
+            ddl_empList.ClearSelection();
             txt_EmpName.Text = string.Empty;
             txt_EmpCode.Text = string.Empty;
             txt_branch.Text = string.Empty;
             txt_Post.Text = string.Empty; 
             txtDateOfJoining.Text = string.Empty; 
-            txtDob.Text = string.Empty; 
-            txtAddress1.Text = string.Empty; 
-            txtAddress2.Text = string.Empty;
-            txtAddress3.Text = string.Empty;
-            txtAddress4.Text = string.Empty;
-            //ddl_empList.ClearSelection();
+            txtDob.Text = string.Empty;
+            txtfathername.Text = string.Empty;
+            txtcast.Text = string.Empty;
+            chkSingle.Checked = false;
+            chkMarried.Checked = false;
+            txtMarriedDetails.Text  = string.Empty;
+            ddlGender.ClearSelection();
+            txtMobile.Text  = string.Empty; 
+            txtRphone.Text = string.Empty; 
+            txtQualification.Text = string.Empty; 
+            txtBloodGroup.Text = string.Empty;
         }
 
+        protected void chkMaritalStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            string maritalStatus = "";
+            string maritalDetails = "";
+            if (chkMarried.Checked)
+            {
+                chkSingle.Checked = false;
+                txtMarriedDetails.Enabled = true;
+                maritalStatus = "Single";
+            }
+            else if (chkSingle.Checked)
+            {
+                chkMarried.Checked = false;
+                txtMarriedDetails.Enabled = false;
+                maritalStatus = "Married";
+                maritalDetails = txtMarriedDetails.Text.Trim();
+            }
+            else
+            {
+                txtMarriedDetails.Enabled = false;
+            }
         }
+    }
 }

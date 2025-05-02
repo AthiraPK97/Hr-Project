@@ -18,7 +18,8 @@ namespace Web_HR_Master
             {
                 load_Branch();
                 string branch = Session["BRANCHID"].ToString();
-                DataTable dt_ShiftDt = objService.Get_staffShiftDetails(Session["BRANCHID"].ToString()).Tables[0];
+
+                DataTable dt_ShiftDt = objService.Get_LastShiftarrangedforEmployee(Session["BRANCHID"].ToString()).Tables[0];
                 if (dt_ShiftDt.Rows.Count > 0)
                 {
                     GridView1.DataSource = dt_ShiftDt;
@@ -48,21 +49,7 @@ namespace Web_HR_Master
 
             }
         }
-        //public void load_postname(object sender, EventArgs e)
-        //{
-        //    DataTable dt_Post = objService.Get_dept_Details().Tables[0];
-        //    if (dt_Post.Rows.Count > 0)
-        //    {
-
-        //        ddl_Post.DataSource = dt_Post;
-        //        ddl_Post.DataValueField = "dep_ID";
-        //        ddl_Post.DataTextField = "DEP_NAME";
-        //        ddl_Post.DataBind();
-        //        ddl_Post.Items.Insert(0, new ListItem("---Select---", "-1"));
-
-        //    }
-
-        //}
+      
 
         public void load_Shift(object sender, EventArgs e)
         {
@@ -79,15 +66,31 @@ namespace Web_HR_Master
             }
 
         }
+        //public void load_username(object sender, EventArgs e)
+        //{
+        //    DataTable dt_userName = objService.Get_user_Details(ddl_Branch.SelectedValue.ToString()).Tables[0];
+        //    if (dt_userName.Rows.Count > 0)
+        //    {
+
+        //        ddl_username.DataSource = dt_userName;
+        //        ddl_username.DataValueField = "UNIQUE_USERNAME";
+        //        ddl_username.DataTextField = "username";
+        //        ddl_username.DataBind();
+        //        ddl_username.Items.Insert(0, new ListItem("---Select---", "-1"));
+
+        //    }
+
+        //}
         public void load_username(object sender, EventArgs e)
         {
-            DataTable dt_userName = objService.Get_user_Details(ddl_Branch.SelectedValue.ToString()).Tables[0];
+            ddl_username.ClearSelection();
+            DataTable dt_userName = objService.Get_TemporaryuserDetails(ddl_Branch.SelectedValue.ToString()).Tables[0];
             if (dt_userName.Rows.Count > 0)
             {
 
                 ddl_username.DataSource = dt_userName;
-                ddl_username.DataValueField = "UNIQUE_USERNAME";
-                ddl_username.DataTextField = "username";
+                ddl_username.DataValueField = "username";
+                ddl_username.DataTextField = "log_user";
                 ddl_username.DataBind();
                 ddl_username.Items.Insert(0, new ListItem("---Select---", "-1"));
 
@@ -103,11 +106,11 @@ namespace Web_HR_Master
             else if (ddl_username.SelectedIndex == -1)
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Choose Username...');", true);
 
-            int res = objService.InsertStaffShift(ddl_username.SelectedValue.ToString(), ddl_Branch.SelectedValue.ToString(), ddl_Shift.SelectedValue.ToString());
+            int res = objService.InsertStaffShift(ddl_username.SelectedValue.ToString(), ddl_Branch.SelectedValue.ToString(), ddl_Shift.SelectedValue.ToString(),Session["USERID"].ToString(), DateTime.Now.ToString("dd-MMM-yyyy"));
 
             if (res > 0)
             {
-                DataTable dt_ShiftDt = objService.Get_staffShiftDetails(ddl_Branch.SelectedValue.ToString()).Tables[0];
+                DataTable dt_ShiftDt = objService.Get_LastShiftarrangedforEmployee(ddl_Branch.SelectedValue.ToString()).Tables[0];
                 if (dt_ShiftDt.Rows.Count > 0)
                 {
                     GridView1.DataSource = dt_ShiftDt;

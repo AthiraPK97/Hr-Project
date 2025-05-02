@@ -12,8 +12,8 @@ namespace WebService_HRMaster
         private string strConnectionString = "";
         public OracleHelper()
         {
-        strConnectionString = "Data Source=mbisdb;User ID=hospital;Password=koothara999;Unicode=True";
-        //  strConnectionString = "Data Source=MACUAT;User ID=Macare_Internal;Password=pass#1234;Unicode=True";
+            strConnectionString = "Data Source=mbisdb;User ID=hospital;Password=koothara999;Unicode=True";
+          //strConnectionString = "Data Source=MACUAT;User ID=Macare_Internal;Password=pass#1234;Unicode=True";
         }
         public int ExecuteNonQuery(string query)
         {

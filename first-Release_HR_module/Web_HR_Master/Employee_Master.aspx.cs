@@ -41,11 +41,11 @@ namespace Web_HR_Master
             dtResult.Columns.Add("Permanent_addr", typeof(string)); dtResult.Columns.Add("Present_addr", typeof(string));
             dtResult.Columns.Add("Cont_phone", typeof(string)); dtResult.Columns.Add("Res_phone", typeof(string));
             dtResult.Columns.Add("State", typeof(string)); // dtResult.Columns.Add("Shift", typeof(string));
-            dtResult.Columns.Add("In_time", typeof(string)); dtResult.Columns.Add("Out_time", typeof(string));
+            //dtResult.Columns.Add("In_time", typeof(string)); dtResult.Columns.Add("Out_time", typeof(string));
             dtResult.Columns.Add("Join_Date", typeof(string));// dtResult.Columns.Add("Experience", typeof(string));
             dtResult.Columns.Add("Designation", typeof(string)); dtResult.Columns.Add("Department", typeof(string));
             dtResult.Columns.Add("Basic_pay", typeof(decimal)); dtResult.Columns.Add("Post_Name", typeof(string));
-            dtResult.Columns.Add("Year_pass", typeof(string));
+            //dtResult.Columns.Add("Year_pass", typeof(string));
             dtResult.Columns.Add("Qualification", typeof(string));
             dtResult.Columns.Add("Branch_name", typeof(string));
 
@@ -77,21 +77,21 @@ namespace Web_HR_Master
                              res_phn = dataRows1.Field<string>("res_phone"),
                              state = dataRows1.Field<string>("state"),
                              // shift = dataRows1.Field<string>("shift"),
-                             in_time = dataRows1.Field<string>("in_time"),
-                             out_time = dataRows1.Field<string>("out_time"),
+                             //in_time = dataRows1.Field<string>("in_time"),
+                             //out_time = dataRows1.Field<string>("out_time"),
                              join_dt = dataRows1.Field<string>("join_dt"),
                              // exp=dataRows1.Field<string>("exp"),
                              desgn = dataRows1.Field<string>("designation"),
                              dep = dataRows1.Field<string>("dep_name"),
                              basic_pay = dataRows1.Field<decimal>("basic_pay"),
                              post = dataRows1.Field<string>("post_name"),
-                             year = dataRows1.Field<string>("year_pass"),
+                             //year = dataRows1.Field<string>("year_pass"),
                              qualifn = dataRows2.Field<string>("qualification"),
                              branch = dataRows1.Field<string>("branch_name")
                          };
             foreach (var item in result)
             {
-                dtResult.Rows.Add(item.emp_code, item.emp_name, item.caste, item.religion, item.identity, item.id_proof, item.bloodgroup, item.spouse, item.father, item.email, item.gender,item.dob,item.age, item.per_addr, item.pre_addr, item.cont_phn, item.res_phn, item.state, item.in_time, item.out_time, item.join_dt,  item.desgn, item.dep, item.basic_pay, item.post, item.year, item.qualifn, item.branch); //,,item.age,item.per_addr,item.pre_addr,item.cont_phn,item.res_phn,item.state,item.shift, 
+                dtResult.Rows.Add(item.emp_code, item.emp_name, item.caste, item.religion, item.identity, item.id_proof, item.bloodgroup, item.spouse, item.father, item.email, item.gender,item.dob,item.age, item.per_addr, item.pre_addr, item.cont_phn, item.res_phn, item.state,  item.join_dt,  item.desgn, item.dep, item.basic_pay, item.post, item.qualifn, item.branch); //,,item.age,item.per_addr,item.pre_addr,item.cont_phn,item.res_phn,item.state,item.shift, 
                                                                                                                                                                                                                                                                                                                                                                                                                                                  //Console.WriteLine(String.Format("ID = {0}, ColX = {1}, ColY = {2}, ColZ = {3}", item.CustID, item.ColX, item.ColY, item.ColZ));
             }
             if (dtResult.Rows.Count > 0)

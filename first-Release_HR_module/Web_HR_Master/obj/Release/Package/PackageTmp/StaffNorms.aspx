@@ -23,7 +23,7 @@
                  <asp:BoundField HeaderText="POST" DataField="POST_NAME" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
                  <asp:BoundField HeaderText="NORMS" DataField="NORMS" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
                  <asp:BoundField HeaderText="ACTUAL" DataField="ACTUAL" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
-                 <asp:BoundField HeaderText="Live Punched(Excluding UNP)" DataField="CURR_DATE" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
+                 <asp:BoundField HeaderText="Live Punched(Including UNP)" DataField="CURR_DATE" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
                  <asp:BoundField HeaderText="Shortage Count" DataField="SHORTAGE_COUNT" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
                  <asp:BoundField HeaderText="Shortage Lag Days" DataField="Shortage_Lag_Days" ItemStyle-Width="250px" ItemStyle-Wrap="False" />
                  <asp:BoundField HeaderText="Autorized Leave"  ItemStyle-Width="250px" ItemStyle-Wrap="False" />

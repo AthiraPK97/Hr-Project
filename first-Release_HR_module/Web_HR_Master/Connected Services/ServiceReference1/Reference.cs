@@ -240,6 +240,13 @@ namespace Web_HR_Master.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_userDetails", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataSet> Get_userDetailsAsync(string Designation);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_TemporaryuserDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Get_TemporaryuserDetails(string branch_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_TemporaryuserDetails", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> Get_TemporaryuserDetailsAsync(string branch_id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_designationDetails", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet Get_designationDetails();
@@ -319,10 +326,10 @@ namespace Web_HR_Master.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertStaffShift", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int InsertStaffShift(string Username, string BRANCH, string shift);
+        int InsertStaffShift(string Username, string BRANCH, string shift, string updated_by, string updated_on);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertStaffShift", ReplyAction="*")]
-        System.Threading.Tasks.Task<int> InsertStaffShiftAsync(string Username, string BRANCH, string shift);
+        System.Threading.Tasks.Task<int> InsertStaffShiftAsync(string Username, string BRANCH, string shift, string updated_by, string updated_on);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateStaffShift", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -466,17 +473,17 @@ namespace Web_HR_Master.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateTempPersonalData", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int UpdateTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode);
+        int UpdateTempPersonalData(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateTempPersonalData", ReplyAction="*")]
-        System.Threading.Tasks.Task<int> UpdateTempPersonalDataAsync(string Address, string DateOfJoining, string DateOfBirth, string EmpCode);
+        System.Threading.Tasks.Task<int> UpdateTempPersonalDataAsync(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertTempPersonalData", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int insertTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode);
+        int insertTempPersonalData(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertTempPersonalData", ReplyAction="*")]
-        System.Threading.Tasks.Task<int> insertTempPersonalDataAsync(string Address, string DateOfJoining, string DateOfBirth, string EmpCode);
+        System.Threading.Tasks.Task<int> insertTempPersonalDataAsync(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_TempStaffPersonalReport", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -484,6 +491,20 @@ namespace Web_HR_Master.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_TempStaffPersonalReport", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataSet> Get_TempStaffPersonalReportAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_shiftReport", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Get_shiftReport(string branch, string fromDate, string Todate, string staff_type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_shiftReport", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> Get_shiftReportAsync(string branch, string fromDate, string Todate, string staff_type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_LastShiftarrangedforEmployee", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Get_LastShiftarrangedforEmployee(string BranchId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get_LastShiftarrangedforEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> Get_LastShiftarrangedforEmployeeAsync(string BranchId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -769,6 +790,14 @@ namespace Web_HR_Master.ServiceReference1 {
             return base.Channel.Get_userDetailsAsync(Designation);
         }
         
+        public System.Data.DataSet Get_TemporaryuserDetails(string branch_id) {
+            return base.Channel.Get_TemporaryuserDetails(branch_id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> Get_TemporaryuserDetailsAsync(string branch_id) {
+            return base.Channel.Get_TemporaryuserDetailsAsync(branch_id);
+        }
+        
         public System.Data.DataSet Get_designationDetails() {
             return base.Channel.Get_designationDetails();
         }
@@ -857,12 +886,12 @@ namespace Web_HR_Master.ServiceReference1 {
             return base.Channel.Get_shiftDetailsAsync();
         }
         
-        public int InsertStaffShift(string Username, string BRANCH, string shift) {
-            return base.Channel.InsertStaffShift(Username, BRANCH, shift);
+        public int InsertStaffShift(string Username, string BRANCH, string shift, string updated_by, string updated_on) {
+            return base.Channel.InsertStaffShift(Username, BRANCH, shift, updated_by, updated_on);
         }
         
-        public System.Threading.Tasks.Task<int> InsertStaffShiftAsync(string Username, string BRANCH, string shift) {
-            return base.Channel.InsertStaffShiftAsync(Username, BRANCH, shift);
+        public System.Threading.Tasks.Task<int> InsertStaffShiftAsync(string Username, string BRANCH, string shift, string updated_by, string updated_on) {
+            return base.Channel.InsertStaffShiftAsync(Username, BRANCH, shift, updated_by, updated_on);
         }
         
         public int UpdateStaffShift(string Username, string shift) {
@@ -1025,20 +1054,20 @@ namespace Web_HR_Master.ServiceReference1 {
             return base.Channel.Get_TempStaffPersonalDetailsAsync(username);
         }
         
-        public int UpdateTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode) {
-            return base.Channel.UpdateTempPersonalData(Address, DateOfJoining, DateOfBirth, EmpCode);
+        public int UpdateTempPersonalData(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode) {
+            return base.Channel.UpdateTempPersonalData(Address, FatherName, Cast, Marital_Status, Married_Details, Gender, Mobile_Number, Residence_phone_number, Qualification, Blood_Group, DateOfJoining, DateOfBirth, EmpCode);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateTempPersonalDataAsync(string Address, string DateOfJoining, string DateOfBirth, string EmpCode) {
-            return base.Channel.UpdateTempPersonalDataAsync(Address, DateOfJoining, DateOfBirth, EmpCode);
+        public System.Threading.Tasks.Task<int> UpdateTempPersonalDataAsync(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode) {
+            return base.Channel.UpdateTempPersonalDataAsync(Address, FatherName, Cast, Marital_Status, Married_Details, Gender, Mobile_Number, Residence_phone_number, Qualification, Blood_Group, DateOfJoining, DateOfBirth, EmpCode);
         }
         
-        public int insertTempPersonalData(string Address, string DateOfJoining, string DateOfBirth, string EmpCode) {
-            return base.Channel.insertTempPersonalData(Address, DateOfJoining, DateOfBirth, EmpCode);
+        public int insertTempPersonalData(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode) {
+            return base.Channel.insertTempPersonalData(Address, FatherName, Cast, Marital_Status, Married_Details, Gender, Mobile_Number, Residence_phone_number, Qualification, Blood_Group, DateOfJoining, DateOfBirth, EmpCode);
         }
         
-        public System.Threading.Tasks.Task<int> insertTempPersonalDataAsync(string Address, string DateOfJoining, string DateOfBirth, string EmpCode) {
-            return base.Channel.insertTempPersonalDataAsync(Address, DateOfJoining, DateOfBirth, EmpCode);
+        public System.Threading.Tasks.Task<int> insertTempPersonalDataAsync(string Address, string FatherName, string Cast, string Marital_Status, string Married_Details, string Gender, string Mobile_Number, string Residence_phone_number, string Qualification, string Blood_Group, string DateOfJoining, string DateOfBirth, string EmpCode) {
+            return base.Channel.insertTempPersonalDataAsync(Address, FatherName, Cast, Marital_Status, Married_Details, Gender, Mobile_Number, Residence_phone_number, Qualification, Blood_Group, DateOfJoining, DateOfBirth, EmpCode);
         }
         
         public System.Data.DataSet Get_TempStaffPersonalReport() {
@@ -1047,6 +1076,22 @@ namespace Web_HR_Master.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Data.DataSet> Get_TempStaffPersonalReportAsync() {
             return base.Channel.Get_TempStaffPersonalReportAsync();
+        }
+        
+        public System.Data.DataSet Get_shiftReport(string branch, string fromDate, string Todate, string staff_type) {
+            return base.Channel.Get_shiftReport(branch, fromDate, Todate, staff_type);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> Get_shiftReportAsync(string branch, string fromDate, string Todate, string staff_type) {
+            return base.Channel.Get_shiftReportAsync(branch, fromDate, Todate, staff_type);
+        }
+        
+        public System.Data.DataSet Get_LastShiftarrangedforEmployee(string BranchId) {
+            return base.Channel.Get_LastShiftarrangedforEmployee(BranchId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> Get_LastShiftarrangedforEmployeeAsync(string BranchId) {
+            return base.Channel.Get_LastShiftarrangedforEmployeeAsync(BranchId);
         }
     }
 }
