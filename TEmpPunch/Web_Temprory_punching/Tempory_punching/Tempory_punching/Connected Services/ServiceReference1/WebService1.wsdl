@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Get_Branch_Type">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Branch_TypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Branch_TypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Branch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Branch_type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_BranchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_BranchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_pharmacy_patient_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Branch_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_pharmacy_patient_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="view_pharmacy_patient_detailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_lab_patient_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Branch_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_lab_patient_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="view_lab_patient_detailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_clinic_patient_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Branch_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_clinic_patient_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="view_clinic_patient_detailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_Registration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="age" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txt_dob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="place" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_RegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_RegistrationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_details">
+        <s:complexType />
+      </s:element>
+      <s:element name="view_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="view_detailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_select">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="drname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_selectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="delete_selectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_select">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="age" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txt_dob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="place" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_selectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="update_selectResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_details_by_name">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_details_by_nameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="view_details_by_nameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_null_data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete_null_dataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="delete_null_dataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPunchDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="punchOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="punchOutTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="punchOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="punchOutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="punchIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="punchin_time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="punchInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="punchInResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePunchInDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePunchInDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updatePunchInDetailsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_report">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_reportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_reportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Get_Branch_TypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Branch_Type" />
+  </wsdl:message>
+  <wsdl:message name="Get_Branch_TypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Branch_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_BranchSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Branch" />
+  </wsdl:message>
+  <wsdl:message name="Get_BranchSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_BranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_pharmacy_patient_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:view_pharmacy_patient_details" />
+  </wsdl:message>
+  <wsdl:message name="view_pharmacy_patient_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:view_pharmacy_patient_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_lab_patient_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:view_lab_patient_details" />
+  </wsdl:message>
+  <wsdl:message name="view_lab_patient_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:view_lab_patient_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_clinic_patient_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:view_clinic_patient_details" />
+  </wsdl:message>
+  <wsdl:message name="view_clinic_patient_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:view_clinic_patient_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_RegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Registration" />
+  </wsdl:message>
+  <wsdl:message name="User_RegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:User_RegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:view_details" />
+  </wsdl:message>
+  <wsdl:message name="view_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:view_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="delete_selectSoapIn">
+    <wsdl:part name="parameters" element="tns:delete_select" />
+  </wsdl:message>
+  <wsdl:message name="delete_selectSoapOut">
+    <wsdl:part name="parameters" element="tns:delete_selectResponse" />
+  </wsdl:message>
+  <wsdl:message name="update_selectSoapIn">
+    <wsdl:part name="parameters" element="tns:update_select" />
+  </wsdl:message>
+  <wsdl:message name="update_selectSoapOut">
+    <wsdl:part name="parameters" element="tns:update_selectResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_details_by_nameSoapIn">
+    <wsdl:part name="parameters" element="tns:view_details_by_name" />
+  </wsdl:message>
+  <wsdl:message name="view_details_by_nameSoapOut">
+    <wsdl:part name="parameters" element="tns:view_details_by_nameResponse" />
+  </wsdl:message>
+  <wsdl:message name="delete_null_dataSoapIn">
+    <wsdl:part name="parameters" element="tns:delete_null_data" />
+  </wsdl:message>
+  <wsdl:message name="delete_null_dataSoapOut">
+    <wsdl:part name="parameters" element="tns:delete_null_dataResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPunchDetails" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPunchDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="punchOutSoapIn">
+    <wsdl:part name="parameters" element="tns:punchOut" />
+  </wsdl:message>
+  <wsdl:message name="punchOutSoapOut">
+    <wsdl:part name="parameters" element="tns:punchOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="punchInSoapIn">
+    <wsdl:part name="parameters" element="tns:punchIn" />
+  </wsdl:message>
+  <wsdl:message name="punchInSoapOut">
+    <wsdl:part name="parameters" element="tns:punchInResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePunchInDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:updatePunchInDetails" />
+  </wsdl:message>
+  <wsdl:message name="updatePunchInDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:updatePunchInDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_reportSoapIn">
+    <wsdl:part name="parameters" element="tns:get_report" />
+  </wsdl:message>
+  <wsdl:message name="get_reportSoapOut">
+    <wsdl:part name="parameters" element="tns:get_reportResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="Get_Branch_Type">
+      <wsdl:input message="tns:Get_Branch_TypeSoapIn" />
+      <wsdl:output message="tns:Get_Branch_TypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Branch">
+      <wsdl:input message="tns:Get_BranchSoapIn" />
+      <wsdl:output message="tns:Get_BranchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_pharmacy_patient_details">
+      <wsdl:input message="tns:view_pharmacy_patient_detailsSoapIn" />
+      <wsdl:output message="tns:view_pharmacy_patient_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_lab_patient_details">
+      <wsdl:input message="tns:view_lab_patient_detailsSoapIn" />
+      <wsdl:output message="tns:view_lab_patient_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_clinic_patient_details">
+      <wsdl:input message="tns:view_clinic_patient_detailsSoapIn" />
+      <wsdl:output message="tns:view_clinic_patient_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Registration">
+      <wsdl:input message="tns:User_RegistrationSoapIn" />
+      <wsdl:output message="tns:User_RegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_details">
+      <wsdl:input message="tns:view_detailsSoapIn" />
+      <wsdl:output message="tns:view_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete_select">
+      <wsdl:input message="tns:delete_selectSoapIn" />
+      <wsdl:output message="tns:delete_selectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update_select">
+      <wsdl:input message="tns:update_selectSoapIn" />
+      <wsdl:output message="tns:update_selectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_details_by_name">
+      <wsdl:input message="tns:view_details_by_nameSoapIn" />
+      <wsdl:output message="tns:view_details_by_nameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete_null_data">
+      <wsdl:input message="tns:delete_null_dataSoapIn" />
+      <wsdl:output message="tns:delete_null_dataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <wsdl:input message="tns:getPunchDetailsSoapIn" />
+      <wsdl:output message="tns:getPunchDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="punchOut">
+      <wsdl:input message="tns:punchOutSoapIn" />
+      <wsdl:output message="tns:punchOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="punchIn">
+      <wsdl:input message="tns:punchInSoapIn" />
+      <wsdl:output message="tns:punchInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePunchInDetails">
+      <wsdl:input message="tns:updatePunchInDetailsSoapIn" />
+      <wsdl:output message="tns:updatePunchInDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_report">
+      <wsdl:input message="tns:get_reportSoapIn" />
+      <wsdl:output message="tns:get_reportSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Branch_Type">
+      <soap:operation soapAction="http://tempuri.org/Get_Branch_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Branch">
+      <soap:operation soapAction="http://tempuri.org/Get_Branch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_pharmacy_patient_details">
+      <soap:operation soapAction="http://tempuri.org/view_pharmacy_patient_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_lab_patient_details">
+      <soap:operation soapAction="http://tempuri.org/view_lab_patient_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_clinic_patient_details">
+      <soap:operation soapAction="http://tempuri.org/view_clinic_patient_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Registration">
+      <soap:operation soapAction="http://tempuri.org/User_Registration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_details">
+      <soap:operation soapAction="http://tempuri.org/view_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_select">
+      <soap:operation soapAction="http://tempuri.org/delete_select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_select">
+      <soap:operation soapAction="http://tempuri.org/update_select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_details_by_name">
+      <soap:operation soapAction="http://tempuri.org/view_details_by_name" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_null_data">
+      <soap:operation soapAction="http://tempuri.org/delete_null_data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <soap:operation soapAction="http://tempuri.org/getPunchDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="punchOut">
+      <soap:operation soapAction="http://tempuri.org/punchOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="punchIn">
+      <soap:operation soapAction="http://tempuri.org/punchIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePunchInDetails">
+      <soap:operation soapAction="http://tempuri.org/updatePunchInDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_report">
+      <soap:operation soapAction="http://tempuri.org/get_report" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Branch_Type">
+      <soap12:operation soapAction="http://tempuri.org/Get_Branch_Type" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Branch">
+      <soap12:operation soapAction="http://tempuri.org/Get_Branch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_pharmacy_patient_details">
+      <soap12:operation soapAction="http://tempuri.org/view_pharmacy_patient_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_lab_patient_details">
+      <soap12:operation soapAction="http://tempuri.org/view_lab_patient_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_clinic_patient_details">
+      <soap12:operation soapAction="http://tempuri.org/view_clinic_patient_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Registration">
+      <soap12:operation soapAction="http://tempuri.org/User_Registration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_details">
+      <soap12:operation soapAction="http://tempuri.org/view_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_select">
+      <soap12:operation soapAction="http://tempuri.org/delete_select" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_select">
+      <soap12:operation soapAction="http://tempuri.org/update_select" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_details_by_name">
+      <soap12:operation soapAction="http://tempuri.org/view_details_by_name" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_null_data">
+      <soap12:operation soapAction="http://tempuri.org/delete_null_data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <soap12:operation soapAction="http://tempuri.org/getPunchDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="punchOut">
+      <soap12:operation soapAction="http://tempuri.org/punchOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="punchIn">
+      <soap12:operation soapAction="http://tempuri.org/punchIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePunchInDetails">
+      <soap12:operation soapAction="http://tempuri.org/updatePunchInDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_report">
+      <soap12:operation soapAction="http://tempuri.org/get_report" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44383/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44383/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

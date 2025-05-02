@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPunchDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetailsForDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchDetailsForDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPunchDetailsForDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchOutDetailsForDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPunchOutDetailsForDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPunchOutDetailsForDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="punchinImage" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add_detailsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Punchoutdetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="image" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_PunchoutdetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add_PunchoutdetailsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPunchout_details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUNCHOUTIMAGE" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPunchout_detailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertPunchout_detailsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiftDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiftDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShiftDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiftTimings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shiftid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiftTimingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShiftTimingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCoolOffTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cool_of_time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCoolOffTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCoolOffTimeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEarlyGoing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="early_Going" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEarlyGoingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateEarlyGoingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePreviousStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="absent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePreviousStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePreviousStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPreviousStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="absent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPreviousStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertPreviousStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShiftResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPunchDetails" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPunchDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsForDateSoapIn">
+    <wsdl:part name="parameters" element="tns:getPunchDetailsForDate" />
+  </wsdl:message>
+  <wsdl:message name="getPunchDetailsForDateSoapOut">
+    <wsdl:part name="parameters" element="tns:getPunchDetailsForDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPunchOutDetailsForDateSoapIn">
+    <wsdl:part name="parameters" element="tns:getPunchOutDetailsForDate" />
+  </wsdl:message>
+  <wsdl:message name="getPunchOutDetailsForDateSoapOut">
+    <wsdl:part name="parameters" element="tns:getPunchOutDetailsForDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_details" />
+  </wsdl:message>
+  <wsdl:message name="Add_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_PunchoutdetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Punchoutdetails" />
+  </wsdl:message>
+  <wsdl:message name="Add_PunchoutdetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_PunchoutdetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertPunchout_detailsSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertPunchout_details" />
+  </wsdl:message>
+  <wsdl:message name="InsertPunchout_detailsSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertPunchout_detailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShiftDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShiftDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftTimingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShiftTimings" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftTimingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShiftTimingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCoolOffTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCoolOffTime" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCoolOffTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCoolOffTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEarlyGoingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEarlyGoing" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEarlyGoingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEarlyGoingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePreviousStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePreviousStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePreviousStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePreviousStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertPreviousStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertPreviousStatus" />
+  </wsdl:message>
+  <wsdl:message name="InsertPreviousStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertPreviousStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShift" />
+  </wsdl:message>
+  <wsdl:message name="GetShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShiftResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceTemporaryPunchSoap">
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <wsdl:input message="tns:getPunchDetailsSoapIn" />
+      <wsdl:output message="tns:getPunchDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetailsForDate">
+      <wsdl:input message="tns:getPunchDetailsForDateSoapIn" />
+      <wsdl:output message="tns:getPunchDetailsForDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPunchOutDetailsForDate">
+      <wsdl:input message="tns:getPunchOutDetailsForDateSoapIn" />
+      <wsdl:output message="tns:getPunchOutDetailsForDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_details">
+      <wsdl:input message="tns:Add_detailsSoapIn" />
+      <wsdl:output message="tns:Add_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Punchoutdetails">
+      <wsdl:input message="tns:Add_PunchoutdetailsSoapIn" />
+      <wsdl:output message="tns:Add_PunchoutdetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPunchout_details">
+      <wsdl:input message="tns:InsertPunchout_detailsSoapIn" />
+      <wsdl:output message="tns:InsertPunchout_detailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDetails">
+      <wsdl:input message="tns:GetShiftDetailsSoapIn" />
+      <wsdl:output message="tns:GetShiftDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftTimings">
+      <wsdl:input message="tns:GetShiftTimingsSoapIn" />
+      <wsdl:output message="tns:GetShiftTimingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCoolOffTime">
+      <wsdl:input message="tns:UpdateCoolOffTimeSoapIn" />
+      <wsdl:output message="tns:UpdateCoolOffTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEarlyGoing">
+      <wsdl:input message="tns:UpdateEarlyGoingSoapIn" />
+      <wsdl:output message="tns:UpdateEarlyGoingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreviousStatus">
+      <wsdl:input message="tns:UpdatePreviousStatusSoapIn" />
+      <wsdl:output message="tns:UpdatePreviousStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPreviousStatus">
+      <wsdl:input message="tns:InsertPreviousStatusSoapIn" />
+      <wsdl:output message="tns:InsertPreviousStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShift">
+      <wsdl:input message="tns:GetShiftSoapIn" />
+      <wsdl:output message="tns:GetShiftSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceTemporaryPunchSoap" type="tns:WebServiceTemporaryPunchSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <soap:operation soapAction="http://tempuri.org/getPunchDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetailsForDate">
+      <soap:operation soapAction="http://tempuri.org/getPunchDetailsForDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchOutDetailsForDate">
+      <soap:operation soapAction="http://tempuri.org/getPunchOutDetailsForDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_details">
+      <soap:operation soapAction="http://tempuri.org/Add_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Punchoutdetails">
+      <soap:operation soapAction="http://tempuri.org/Add_Punchoutdetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPunchout_details">
+      <soap:operation soapAction="http://tempuri.org/InsertPunchout_details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDetails">
+      <soap:operation soapAction="http://tempuri.org/GetShiftDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftTimings">
+      <soap:operation soapAction="http://tempuri.org/GetShiftTimings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCoolOffTime">
+      <soap:operation soapAction="http://tempuri.org/UpdateCoolOffTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEarlyGoing">
+      <soap:operation soapAction="http://tempuri.org/UpdateEarlyGoing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreviousStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdatePreviousStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPreviousStatus">
+      <soap:operation soapAction="http://tempuri.org/InsertPreviousStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShift">
+      <soap:operation soapAction="http://tempuri.org/GetShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceTemporaryPunchSoap12" type="tns:WebServiceTemporaryPunchSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetails">
+      <soap12:operation soapAction="http://tempuri.org/getPunchDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchDetailsForDate">
+      <soap12:operation soapAction="http://tempuri.org/getPunchDetailsForDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPunchOutDetailsForDate">
+      <soap12:operation soapAction="http://tempuri.org/getPunchOutDetailsForDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_details">
+      <soap12:operation soapAction="http://tempuri.org/Add_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Punchoutdetails">
+      <soap12:operation soapAction="http://tempuri.org/Add_Punchoutdetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPunchout_details">
+      <soap12:operation soapAction="http://tempuri.org/InsertPunchout_details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetShiftDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftTimings">
+      <soap12:operation soapAction="http://tempuri.org/GetShiftTimings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCoolOffTime">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCoolOffTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEarlyGoing">
+      <soap12:operation soapAction="http://tempuri.org/UpdateEarlyGoing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreviousStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePreviousStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPreviousStatus">
+      <soap12:operation soapAction="http://tempuri.org/InsertPreviousStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShift">
+      <soap12:operation soapAction="http://tempuri.org/GetShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTemporaryPunch">
+    <wsdl:port name="WebServiceTemporaryPunchSoap" binding="tns:WebServiceTemporaryPunchSoap">
+      <soap:address location="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_Temporary_Punching/WebServiceTemporaryPunch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceTemporaryPunchSoap12" binding="tns:WebServiceTemporaryPunchSoap12">
+      <soap12:address location="https://macare.mactech.net.in/MACARE_MIS_Service/WebService_Temporary_Punching/WebServiceTemporaryPunch.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

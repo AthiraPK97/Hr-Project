@@ -1,0 +1,12 @@
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\bin\Debug\Tempory_punching.exe.config
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\bin\Debug\Tempory_punching.exe
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\bin\Debug\Tempory_punching.pdb
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\bin\Debug\Newtonsoft.Json.dll
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\bin\Debug\Newtonsoft.Json.xml
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.csprojAssemblyReference.cache
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.Form1.resources
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.csproj.GenerateResource.cache
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.csproj.CoreCompileInputs.cache
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.csproj.CopyComplete
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.exe
+E:\Live_projects\Application\Web_Temprory_punching\Tempory_punching\Tempory_punching\obj\Debug\Tempory_punching.pdb
