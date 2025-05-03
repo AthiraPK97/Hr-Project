@@ -1,0 +1,279 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="DoctorsOnDuty.Site1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DoctorsOnDuty</title>
+    <!-- ================= Favicon ================== -->
+
+
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Styles -->
+    <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lib/themify-icons.css" rel="stylesheet">
+    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <div class="logo"><a href="index.html">
+                             <img src="images/logo.JPG" alt="" /> <%--<span>Focus</span>--%></a></div>
+                   <li><a href="Dashboard.aspx"><i class="ti-home"></i> Dashboard</a></li>
+
+
+                    <% if (Session["USERTYPE"].ToString() == "crmhead" || Session["USERTYPE"].ToString() == "crmstaff")
+                        { %>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Doctors <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Doctors_registration.aspx">Registration</a></li>
+                                <li><a href="Edit_doctors_registration.aspx">Edit Doctor Visit</a></li>
+                                <li><a href="Shift_change.aspx">Temporary Shift Change</a></li>
+                                <li><a href="View_doctors.aspx">View Doctors Details</a></li>
+                            </ul>
+                        </li>
+
+                    <%} %>
+
+                    <% else if (Session["USERTYPE"].ToString() == "receptionist")
+                        { %>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Doctors <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Doctors_registration.aspx">Registration</a></li>
+                                <li><a href="Edit_doctors_registration.aspx">Edit Doctor Visit</a></li>
+                                <li><a href="Shift_change.aspx">Temporary Shift Change</a></li>
+                                <li><a href="Doctors_attendance.aspx">Add Attendance</a></li>
+                                <li><a href="View_doctors.aspx">View Doctors Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-plus"></i> Scanning Document <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Add_doctors.aspx">Add Doctor</a></li>
+                                <li><a href="Upload_scanningdoc.aspx">Upload Scanning Document</a></li>
+                                <li><a href="View.aspx">View/ Edit/ Delete</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-alarm-clock"></i> Doctor Punching <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Punching_registration.aspx"> Add Punching Doctors</a></li>                         
+                            </ul>
+                        </li>
+                    <%} %>
+
+                    <% else
+                        { %>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Doctors <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Doctors_registration.aspx">Registration</a></li>
+                                <li><a href="Edit_doctors_registration.aspx">Edit Doctor Visit</a></li>
+                                <li><a href="Shift_change.aspx">Temporary Shift Change</a></li>
+                                <li><a href="View_payment.aspx">View payment</a></li>
+                                <li><a href="Edit_Paymentterms.aspx">Add/Edit payment Terms</a></li>                               
+                                <li><a href="Doctors_attendance.aspx">Add Attendance</a></li>
+                                <li><a href="View_doctors.aspx">View Doctors Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-bookmark"></i> Employees <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Add_employee.aspx"> Add Employee</a></li>
+                                <%--<li><a href="Add_employeeshift.aspx"> Add Shift</a></li>
+                                <li><a href="Add_Staffshiftchange.aspx"> Shift Change</a></li> --%>                          
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> Reports <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Report.aspx">Doctor Attendance Report</a></li>
+                                <li><a href="Doctor_payment_report.aspx">Doctor Payment Report</a></li>
+                                <li><a href="Shiftchange_report.aspx">Doctor Shift Change Report</a></li>
+                                <li><a href="Alldoctors_report.aspx">Registered Doctors details</a></li>
+                                <li><a href="Staff_Availablereport.aspx">Current Available Staffs</a></li>
+                                <li><a href="Shift_report.aspx">Shift Details</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart"></i> Doctor Incentive <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Dr_incentiveadd.aspx">Add Incentive Percentage</a></li>
+                                <li><a href="procedure_incentiveadd.aspx">Add Procedure charge Incentive percentage</a></li>
+                                <li><a href="Incentive_report.aspx">View Incentive</a></li>
+                            
+                            </ul>
+                        </li>
+
+                        <li><a class="sidebar-sub-toggle"><i class="ti-plus"></i> Scanning Document <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Add_doctors.aspx">Add Doctor</a></li>
+                                <li><a href="Upload_scanningdoc.aspx">Upload Scanning Document</a></li>
+                                <li><a href="View.aspx">View/ Edit/ Delete</a></li>
+                            
+                            </ul>
+                        </li>
+
+                        <li><a class="sidebar-sub-toggle"><i class="ti-alarm-clock"></i> Doctor Punching <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Punching_registration.aspx"> Add Punching Doctors</a></li>
+                                <li><a href="Punching_report.aspx"> Punching Report</a></li>                          
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-settings"></i> Staff Norms Settings <span
+                                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="Add_area.aspx"> Add Area</a></li>
+                                <li><a href="Add_effect_area.aspx"> Add Affected Area</a></li> 
+                                <li><a href="Add_norms_range.aspx"> Add Norms Range</a></li>
+                                <li><a href="Add_Norms_Staffsitting.aspx"> Update Staff Sitting Area</a></li>
+                                <li><a href="Norms_Prediction.aspx"> Norms Prediction</a></li>
+                                <li><a href="Norms_Calculation.aspx"> Norms Actual</a></li>
+                            </ul>
+                        </li>
+                        
+                    <%} %>
+
+                    
+                    
+                    <%--<script>
+                        var USERID = '<%Session["USERID"]%>';                     
+                    </script>--%>
+                    <%--<li><a href="https://localhost:44315/Upload_scanningdoc.aspx?USERTYPE"+USERID><i class="ti-plus"></i> Add Scanning Doc </a></li>--%>
+                    <li><a href="Login.aspx"><i class="ti-power-off"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /# sidebar -->
+
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="float-left">
+                        <div class="hamburger sidebar-toggle">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Hello, <span>Welcome </span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                                <div class="card-body">
+                                    <div class="form-validation">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+
+                            <div class="footer">
+                                <p>2022 © Macare IT</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery vendor -->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="js/lib/menubar/sidebar.js"></script>
+    <script src="js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
+
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- bootstrap -->
+
+    <script src="js/lib/calendar-2/moment.latest.min.js"></script>
+    <script src="js/lib/calendar-2/pignose.calendar.min.js"></script>
+    <script src="js/lib/calendar-2/pignose.init.js"></script>
+
+
+    <script src="js/lib/weather/jquery.simpleWeather.min.js"></script>
+    <script src="js/lib/weather/weather-init.js"></script>
+    <script src="js/lib/circle-progress/circle-progress.min.js"></script>
+    <script src="js/lib/circle-progress/circle-progress-init.js"></script>
+    <script src="js/lib/chartist/chartist.min.js"></script>
+    <script src="js/lib/sparklinechart/jquery.sparkline.min.js"></script>
+    <script src="js/lib/sparklinechart/sparkline.init.js"></script>
+    <script src="js/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/lib/owl-carousel/owl.carousel-init.js"></script>
+    <!-- scripit init-->
+    <script src="js/dashboard2.js"></script>
+</body>
+
+</html>
